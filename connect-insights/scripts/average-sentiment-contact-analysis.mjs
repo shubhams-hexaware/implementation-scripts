@@ -2,7 +2,7 @@ import AmazonConnectHelper from "../helpers/amazonConnectHelper.js";
 
 const amazonConnectHelper = new AmazonConnectHelper('http://wickesinsights-710907117.eu-west-2.elb.amazonaws.com/api');
 
-const SENTIMENT_KEY = 'agent_sentiment';
+const SENTIMENT_KEY = 'customer_sentiment';
 
 (async function main() {
   const ctrDenormalizedResponse = await amazonConnectHelper.getCTRDenormalizedHelper({
