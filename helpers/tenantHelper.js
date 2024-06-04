@@ -13,8 +13,18 @@ exports.getTenantByNameHelper = async function getTenantByNameHelper(tenantName)
   `);
 
   return tenants?.[0] ?? null;
-}
+};
 
 exports.getAssignmentGroupsByTenantId = async function getAssignmentGroupsByTenantId(tenantId) {
-  
-}
+  logger.info(`getAssignmentGroupsByTenantId -> tenant id is ${tenantId}`);
+
+  const pool = pgClient.getPool("TENSAI_DB");
+
+  const { rows: assignmentGroup } = await pool.query(`
+    SELECT id, "tenantId", "assignmentGroupListSelectedJson", "assignmentGroupListJson" 
+    FROM managedqueue 
+    WHERE "tenantId" = ${tenantId}
+  `);
+
+  return assignmentGroup?.[0] ?? null;
+};

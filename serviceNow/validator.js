@@ -3,20 +3,23 @@ const { parseCsv } = require("../utils/csvUtils");
 const axios = require("axios");
 const HtmlCreator = require("html-creator");
 const prompt = require("async-prompt");
-const { getTenantByNameHelper } = require("../helpers/tenantHelper");
+const { getTenantByNameHelper, getAssignmentGroupsByTenantId } = require("../helpers/tenantHelper");
 const { getProductByNameHelper } = require("../helpers/productHelper");
-
+const logger = require("../utils/logger");
+const configuration = require("./config");
+const pgClient = require("../utils/pgClient");
+const fs = require("fs");
 
 /* CONSTANTS */
 const BASE_URL = process.env.SERVICE_NOW_BASE_URL;
 
 const TABLE_NAMES = {
-  incident_list: "stats/incident",
-  incident_sla_list: "stats/incident_sla",
-  sc_task_list: "stats/sc_task",
-  sc_task_sla_list: "stats/sc_task_sla",
-  task_sla_list: "stats/task_sla",
-  change_request_list: "stats/change_request",
+  incident_list: "table/incident",
+  incident_sla_list: "table/incident_sla",
+  sc_task_list: "table/sc_task",
+  sc_task_sla_list: "table/sc_task_sla",
+  task_sla_list: "table/task_sla",
+  change_request_list: "table/change_request",
 };
 
 /* REPORT TEMPLATE */
@@ -46,12 +49,12 @@ const tableHeaderTag = {
 
 const table = {};
 
-async function fetch(url) {
+async function fetch(url, product) {
   try {
     const response = await axios.get(url, {
       auth: {
-        username: process.env.SERVICE_NOW_USERNAME,
-        password: process.env.SERVICE_NOW_PASSWORD,
+        username: product?.auth?.credentials?.username,
+        password: product?.auth?.credentials?.password,
       },
     });
 
@@ -62,35 +65,29 @@ async function fetch(url) {
   }
 }
 
-function formatUrl(rawUrl) {
-  const url = new URL(rawUrl, BASE_URL);
+function formatUrl(rawUrl, assignmentGroups, product) {
+  let tempUrl = product.baseUrl + rawUrl;
 
-  let sysParam = url.searchParams.get("sys_parm");
+  const url = new URL(tempUrl, BASE_URL);
+
+  let sysParam = url.searchParams.get("sysparm_query");
   // adding the assignment groups
-  url.searchParams.set("sys_parm", sysParam + assignmentGroups.join(","));
+  url.searchParams.set("sysparm_query", sysParam + "^" + assignmentGroups);
 
-  const rawTableName = Object.keys(TABLE_NAMES).find((tableName) =>
-    url.pathname.includes(tableName),
-  );
+  const rawTableName = Object.keys(TABLE_NAMES).find((tableName) => url.pathname.includes(tableName));
 
   if (!rawTableName) {
     throw new Error(`Unable to find the table name for ${rawTableName}`);
   }
 
-  return [
-    url.protocol,
-    url.host,
-    "/api/now/",
-    TABLE_NAMES[rawTableName],
-    `?${url.searchParams.toString()}`,
-  ].join();
+  return url.protocol + "//" + url.host + "/api/now/" + TABLE_NAMES[rawTableName] + `?${url.searchParams.toString()}`;
 }
 
-async function processCsv(data) {
+async function processCsv(data, assignmentGroups, product) {
   const results = [];
 
   for (let counter = 0; counter < data.length; counter++) {
-    const [widgetName, url] = data[counter];
+    const { widgetName, url } = data[counter];
 
     if (!url) {
       console.error(`URL not defined for ${widgetName}`);
@@ -102,17 +99,17 @@ async function processCsv(data) {
       continue;
     }
 
-    const formattedUrl = formatUrl(url);
+    const formattedUrl = formatUrl(url, assignmentGroups, product);
 
     try {
       // invoke the API
-      const data = await fetch(formattedUrl);
+      const data = await fetch(formattedUrl, product);
 
       // store the result
       results.push({
         widgetName,
         url: formattedUrl,
-        response: data,
+        response: data?.result[0],
       });
     } catch (e) {
       results.push({
@@ -126,46 +123,112 @@ async function processCsv(data) {
   return results;
 }
 
-function createHtmlReport(data) {
-  const htmlCreator = new HtmlCreator([
-    htmlHeadTag,
+function createHtmlReport(data, tenantInfo, product) {
+  const html = new HtmlCreator([
+    {
+      type: "head",
+      content: [
+        {
+          type: "title",
+          content: "Table Example",
+        },
+        {
+          type: "style",
+          content: `
+            table {
+              width: 100%;
+              border-collapse: collapse;
+            }
+            th, td {
+              padding: 8px;
+              text-align: left;
+              border: 1px solid #ddd;
+            }
+            th {
+              background-color: #f2f2f2;
+            }
+            @media screen and (max-width: 600px) {
+              table, thead, tbody, th, td, tr {
+                display: block;
+              }
+              th, td {
+                box-sizing: border-box;
+                width: 100%;
+              }
+            }
+          `,
+        },
+      ],
+    },
     {
       type: "body",
       content: [
         {
-          type: "h1",
-          content: "Service Now | API Validator",
+          type: "div",
+          attributes: { class: "info" },
+          content: [
+            { type: "p", content: `Tenant ID: ${tenantInfo.id}` },
+            { type: "p", content: `Tenant Name: ${tenantInfo.name}` },
+            { type: "p", content: `Product Name: ${product.name}` },
+          ],
         },
         {
           type: "table",
-          attributes: { id: "resultTable" },
-          content: [tableHeaderTag, table],
+          attributes: { border: "1" },
+          content: [
+            {
+              type: "tr",
+              content: [
+                { type: "th", content: "Widget Name" },
+                { type: "th", content: "URL" },
+                { type: "th", content: "Response" },
+              ],
+            },
+            ...data.map((item) => ({
+              type: "tr",
+              content: [
+                { type: "td", content: item.widgetName },
+                { type: "td", content: item.url },
+                { type: "td", content: JSON.stringify(item.response) },
+              ],
+            })),
+          ],
         },
       ],
     },
   ]);
 
-  const html = htmlCreator.renderHTMLToFile("validator-result.html");
+  fs.writeFileSync(`${tenantInfo.name}-validator-result.html`, html.renderHTML());
 }
 
 (async function main() {
-  const tenantName = await prompt("Enter the tenant name ").trim();
+  pgClient.initPool("TENSAI_DB", {
+    ...configuration.database.test,
+    database: "tensaidb",
+  });
+
+  pgClient.initPool("TENSAI_AUTH_DB", {
+    ...configuration.database.test,
+    database: "tensaiauthdb",
+  });
+
+  const tenantName = await prompt("Enter the tenant name ");
 
   if (!tenantName) {
-    // throw an error
+    throw new Error("Tenant name is required");
   }
 
   const tenant = await getTenantByNameHelper(tenantName);
 
-  const product = await getProductByNameHelper("ServiceNow");
+  const product = await getProductByNameHelper({ tenantId: tenant?.id, productName: "ServiceNow" });
 
-  // TODO: get the assignment groups from the DB
+  const assignmentGroup = await getAssignmentGroupsByTenantId(tenant?.id);
 
-  const data = await parseCsv("./service-insights-api.csv");
+  const assignmentGroups = JSON.parse(assignmentGroup?.assignmentGroupListSelectedJson)?.map((obj) => obj.sys_id);
 
-  const serviceNowData = await processCsv(data);
+  const data = await parseCsv("./service_insights-aging_inc&tasks.csv");
 
-  // TODO: generate and save HTML report
+  const serviceNowData = await processCsv(data, assignmentGroups.join(",") ?? [], JSON.parse(product?.productConfigurationJson));
+
+  await createHtmlReport(serviceNowData, tenant, product);
 })();
-
-
