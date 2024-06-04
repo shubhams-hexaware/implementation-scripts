@@ -1,4 +1,4 @@
-import httpClient from "../utils/httpClient.mjs";
+import httpClient from "../utils/httpClient.js";
 import moment from "moment";
 
 class AmazonConnectHelper {

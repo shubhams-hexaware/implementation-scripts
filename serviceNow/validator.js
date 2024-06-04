@@ -1,20 +1,50 @@
-require("dotenv/config");
-const fs = require("fs");
-const csv = require("csv-parser");
+require("dotenv").config({ path: "../.env" });
+const { parseCsv } = require("../utils/csvUtils");
 const axios = require("axios");
-const assignmentGroups = require("./assignmentGroups.json");
+const HtmlCreator = require("html-creator");
+const prompt = require("async-prompt");
+const { getTenantByNameHelper } = require("../helpers/tenantHelper");
+const { getProductByNameHelper } = require("../helpers/productHelper");
 
+
+/* CONSTANTS */
 const BASE_URL = process.env.SERVICE_NOW_BASE_URL;
 
-async function parseCsv(filename) {
-  return new Promise(resolve => {
-    const data = [];
-    fs.createReadStream(filename)
-      .pipe(csv())
-      .on("data", (row) => data.push(row))
-      .on("end", () => resolve(data));
-  });
-}
+const TABLE_NAMES = {
+  incident_list: "stats/incident",
+  incident_sla_list: "stats/incident_sla",
+  sc_task_list: "stats/sc_task",
+  sc_task_sla_list: "stats/sc_task_sla",
+  task_sla_list: "stats/task_sla",
+  change_request_list: "stats/change_request",
+};
+
+/* REPORT TEMPLATE */
+const htmlHeadTag = {
+  type: "head",
+  content: [
+    {
+      type: "title",
+      content: "Tensai | Service Now | API Validator",
+    },
+  ],
+};
+
+const tableHeaderTag = {
+  type: "thead",
+  content: [
+    {
+      type: "tr",
+      content: [
+        { type: "th", content: "Widget Name" },
+        { type: "th", content: "API" },
+        { type: "th", content: "Response " },
+      ],
+    },
+  ],
+};
+
+const table = {};
 
 async function fetch(url) {
   try {
@@ -22,7 +52,7 @@ async function fetch(url) {
       auth: {
         username: process.env.SERVICE_NOW_USERNAME,
         password: process.env.SERVICE_NOW_PASSWORD,
-      }
+      },
     });
 
     return response.data;
@@ -32,40 +62,110 @@ async function fetch(url) {
   }
 }
 
-const getTableNameFromUrl = (url) => url.split(".com/")[1];
+function formatUrl(rawUrl) {
+  const url = new URL(rawUrl, BASE_URL);
 
-const TABLE_NAMES = {
-  "incident_list": "/api/now/stats/incident",
-  "incident_sla_list": "/api/now/stats/incident_sla",
-  "sc_task_list": "/api/now/stats/sc_task",
-  "sc_task_sla_list": "/api/now/stats/sc_task_sla",
-  "task_sla_list": "/api/now/stats/task_sla",
-  "change_request_list": "/api/now/stats/change_request",
-};
+  let sysParam = url.searchParams.get("sys_parm");
+  // adding the assignment groups
+  url.searchParams.set("sys_parm", sysParam + assignmentGroups.join(","));
 
-(async function main() {
-  const data = await parseCsv('./service-insights-api.csv');
+  const rawTableName = Object.keys(TABLE_NAMES).find((tableName) =>
+    url.pathname.includes(tableName),
+  );
+
+  if (!rawTableName) {
+    throw new Error(`Unable to find the table name for ${rawTableName}`);
+  }
+
+  return [
+    url.protocol,
+    url.host,
+    "/api/now/",
+    TABLE_NAMES[rawTableName],
+    `?${url.searchParams.toString()}`,
+  ].join();
+}
+
+async function processCsv(data) {
+  const results = [];
 
   for (let counter = 0; counter < data.length; counter++) {
     const [widgetName, url] = data[counter];
 
     if (!url) {
       console.error(`URL not defined for ${widgetName}`);
+      results.push({
+        widgetName,
+        url: "",
+        response: "URL not provided",
+      });
       continue;
     }
 
-    let tableName;
-    if (!url.includes('api')) {
-      tableName = getTableNameFromUrl(url);
+    const formattedUrl = formatUrl(url);
+
+    try {
+      // invoke the API
+      const data = await fetch(formattedUrl);
+
+      // store the result
+      results.push({
+        widgetName,
+        url: formattedUrl,
+        response: data,
+      });
+    } catch (e) {
+      results.push({
+        widgetName,
+        url: formattedUrl,
+        response: e.message,
+      });
     }
-
-    if (!tableName) {
-      console.error(`Unknown table name in URL ${url}`);
-      continue;
-    }
-
-    const apiUrl = new URL(url, BASE_URL);
-    const sysParm = url.searchParams.get('sys_parm');
-
   }
+
+  return results;
+}
+
+function createHtmlReport(data) {
+  const htmlCreator = new HtmlCreator([
+    htmlHeadTag,
+    {
+      type: "body",
+      content: [
+        {
+          type: "h1",
+          content: "Service Now | API Validator",
+        },
+        {
+          type: "table",
+          attributes: { id: "resultTable" },
+          content: [tableHeaderTag, table],
+        },
+      ],
+    },
+  ]);
+
+  const html = htmlCreator.renderHTMLToFile("validator-result.html");
+}
+
+(async function main() {
+  const tenantName = await prompt("Enter the tenant name ").trim();
+
+  if (!tenantName) {
+    // throw an error
+  }
+
+  const tenant = await getTenantByNameHelper(tenantName);
+
+  const product = await getProductByNameHelper("ServiceNow");
+
+  // TODO: get the assignment groups from the DB
+
+  const data = await parseCsv("./service-insights-api.csv");
+
+  const serviceNowData = await processCsv(data);
+
+  // TODO: generate and save HTML report
 })();
+
+

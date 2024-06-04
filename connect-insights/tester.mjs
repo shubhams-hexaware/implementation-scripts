@@ -1,10 +1,10 @@
-import configuration from "../config.mjs";
-import logger from "../utils/logger.mjs";
+import configuration from "./config.mjs";
+import logger from "../utils/logger.js";
 import prompt from "async-prompt";
 import TenantHelper from "../helpers/tenantHelper.mjs";
 import ProductHelper from "../helpers/productHelper.mjs";
-import pgClient from "../utils/pgClient.mjs";
-import AmazonConnectHelper from "../helpers/amazonConnectHelper.js";
+import pgClient from "../utils/pgClient.js";
+import AmazonConnectHelper from "./amazonConnectHelper.js";
 
 /**
  * Accept the tenant name from the user

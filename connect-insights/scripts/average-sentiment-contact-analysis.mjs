@@ -1,4 +1,4 @@
-import AmazonConnectHelper from "../helpers/amazonConnectHelper.js";
+import AmazonConnectHelper from "../amazonConnectHelper.js";
 
 const amazonConnectHelper = new AmazonConnectHelper('http://wickesinsights-710907117.eu-west-2.elb.amazonaws.com/api');
 

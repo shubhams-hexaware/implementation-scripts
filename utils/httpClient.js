@@ -1,15 +1,12 @@
-import axios from "axios";
-import configuration from "../config.mjs";
+const axios = require("axios");
 
 class HttpClient {
   #client;
 
-  init(baseUrl) {
+  init(baseUrl, headers = {}) {
     this.#client = axios.create({
       baseURL: baseUrl,
-      headers: {
-        'Authorization': 'Basic VGVuc2FpSW5zaWdodHM6SGV4YXdhcmVAMTIza'
-      },
+      headers
     });
   }
 
@@ -20,7 +17,7 @@ class HttpClient {
       data,
     });
 
-    if (response.statusText !== 'OK') {
+    if (response.statusText !== "OK") {
       console.error(`HTTPClient -> _request -> error is`, response);
       throw new Error(`An error occurred calling ${url}`);
     }
@@ -30,14 +27,14 @@ class HttpClient {
 
   async get(url) {
     return this._request({
-      method: 'get',
+      method: "get",
       url
     });
   }
 
   async post(url, data) {
     return this._request({
-      method: 'post',
+      method: "post",
       url,
       data
     });
@@ -46,4 +43,4 @@ class HttpClient {
 
 const httpClient = new HttpClient();
 
-export default httpClient;
+module.exports = httpClient;
