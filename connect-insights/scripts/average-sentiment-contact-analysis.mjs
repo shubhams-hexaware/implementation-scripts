@@ -1,21 +1,21 @@
 import AmazonConnectHelper from "../amazonConnectHelper.js";
 
-const amazonConnectHelper = new AmazonConnectHelper('http://wickesinsights-710907117.eu-west-2.elb.amazonaws.com/api');
+const amazonConnectHelper = new AmazonConnectHelper('http://luminareinsights-1062819735.us-east-1.elb.amazonaws.com/api');
 
 const SENTIMENT_KEY = 'customer_sentiment';
 
 (async function main() {
   const ctrDenormalizedResponse = await amazonConnectHelper.getCTRDenormalizedHelper({
-    startDateTime: '2024-05-03 00:00:00',
-    endDateTime: '2024-05-03 23:59:59',
+    startDateTime: '2024-05-11 00:00:00',
+    endDateTime: '2024-05-11 23:59:59',
   });
 
   const filteredCtrResponse = ctrDenormalizedResponse.filter(_data =>
     _data.queue_name && _data.channel && (_data.connectedtosystemtimestamp || _data.initiationtimestamp));
 
   const contactLensResponse = await amazonConnectHelper.getContactLensDenormalizedHelper({
-    startDate: '2024-05-03',
-    endDate: '2024-05-03',
+    startDate: '2024-05-11',
+    endDate: '2024-05-11',
   });
 
   let sentiment = 0;
