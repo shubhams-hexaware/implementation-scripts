@@ -65,17 +65,17 @@ async function fetch(url, product) {
   }
 }
 
-function formatUrl(rawUrl, assignmentGroups, product) {
+function formatUrl(rawUrl, assignmentGroups, product, includeAssignmentGroups = true) {
   let tempUrl = product.baseUrl + rawUrl;
+  const url = new URL(tempUrl);
 
-  const url = new URL(tempUrl, BASE_URL);
-
-  let sysParam = url.searchParams.get("sysparm_query");
-  // adding the assignment groups
-  url.searchParams.set("sysparm_query", sysParam + "^" + assignmentGroups);
+  if (includeAssignmentGroups) {
+    let sysParam = url.searchParams.get("sysparm_query");
+    // Adding the assignment groups
+    url.searchParams.set("sysparm_query", sysParam + "^" + assignmentGroups);
+  }
 
   const rawTableName = Object.keys(TABLE_NAMES).find((tableName) => url.pathname.includes(tableName));
-
   if (!rawTableName) {
     throw new Error(`Unable to find the table name for ${rawTableName}`);
   }
@@ -93,29 +93,47 @@ async function processCsv(data, assignmentGroups, product) {
       console.error(`URL not defined for ${widgetName}`);
       results.push({
         widgetName,
-        url: "",
-        response: "URL not provided",
+        urlWithAssignmentGroups: "",
+        urlWithoutAssignmentGroups: "",
+        responseWithAssignmentGroups: "URL not provided",
+        responseWithoutAssignmentGroups: "URL not provided",
       });
       continue;
     }
 
-    const formattedUrl = formatUrl(url, assignmentGroups, product);
+    const urlWithAssignmentGroups = formatUrl(url, assignmentGroups, product, true);
+    const urlWithoutAssignmentGroups = formatUrl(url, assignmentGroups, product, false);
 
     try {
-      // invoke the API
-      const data = await fetch(formattedUrl, product);
+      // Invoke the API for URL with assignment groups
+      const dataWithAssignmentGroups = await fetch(urlWithAssignmentGroups, product);
+      const responseWithAssignmentGroups = dataWithAssignmentGroups?.result[0] || [];
+      const countWithAssignmentGroups = dataWithAssignmentGroups?.result.length || [];
 
-      // store the result
+      // Invoke the API for URL without assignment groups
+      const dataWithoutAssignmentGroups = await fetch(urlWithoutAssignmentGroups, product);
+      const responseWithoutAssignmentGroups = dataWithoutAssignmentGroups?.result[0] || [];
+      const countWithoutAssignmentGroups = dataWithoutAssignmentGroups?.result.length || [];
+
+      // Store the results
       results.push({
         widgetName,
-        url: formattedUrl,
-        response: data?.result[0],
+        urlWithAssignmentGroups,
+        urlWithoutAssignmentGroups,
+        responseWithAssignmentGroups,
+        responseWithoutAssignmentGroups,
+        countWithAssignmentGroups,
+        countWithoutAssignmentGroups,
       });
     } catch (e) {
       results.push({
         widgetName,
-        url: formattedUrl,
-        response: e.message,
+        urlWithAssignmentGroups,
+        urlWithoutAssignmentGroups,
+        responseWithAssignmentGroups: e.message,
+        responseWithoutAssignmentGroups: e.message,
+        countWithAssignmentGroups: 0,
+        countWithoutAssignmentGroups: 0,
       });
     }
   }
@@ -123,112 +141,136 @@ async function processCsv(data, assignmentGroups, product) {
   return results;
 }
 
-function createHtmlReport(data, tenantInfo, product) {
-  const html = new HtmlCreator([
-    {
-      type: "head",
-      content: [
-        {
-          type: "title",
-          content: "Table Example",
-        },
-        {
-          type: "style",
-          content: `
-            table {
-              width: 100%;
-              border-collapse: collapse;
+function createHtmlReport(data, tenantInfo) {
+  const pageTitle = `${tenantInfo.name} - ${tenantInfo.productName}`;
+  const htmlContent = `
+    <html>
+      <head>
+        <title>${pageTitle}</title>
+        <style>
+          body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+          }
+          .info {
+            margin-bottom: 20px;
+          }
+          table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+          }
+          th, td {
+            padding: 12px;
+            text-align: left;
+            border: 1px solid #ddd;
+            word-wrap: break-word;
+          }
+          th {
+            background-color: #f2f2f2;
+          }
+          tr:nth-child(even) {
+            background-color: #f9f9f9;
+          }
+          tr:hover {
+            background-color: #f1f1f1;
+          }
+          pre {
+            white-space: pre-wrap;
+            word-wrap: break-word;
+            margin: 0;
+          }
+          @media screen and (max-width: 600px) {
+            table, thead, tbody, th, td, tr {
+              display: block;
             }
             th, td {
-              padding: 8px;
-              text-align: left;
-              border: 1px solid #ddd;
+              box-sizing: border-box;
+              width: 100%;
             }
-            th {
-              background-color: #f2f2f2;
-            }
-            @media screen and (max-width: 600px) {
-              table, thead, tbody, th, td, tr {
-                display: block;
-              }
-              th, td {
-                box-sizing: border-box;
-                width: 100%;
-              }
-            }
-          `,
-        },
-      ],
-    },
-    {
-      type: "body",
-      content: [
-        {
-          type: "div",
-          attributes: { class: "info" },
-          content: [
-            { type: "p", content: `Tenant ID: ${tenantInfo.id}` },
-            { type: "p", content: `Tenant Name: ${tenantInfo.name}` },
-            { type: "p", content: `Product Name: ${product.name}` },
-          ],
-        },
-        {
-          type: "table",
-          attributes: { border: "1" },
-          content: [
-            {
-              type: "tr",
-              content: [
-                { type: "th", content: "Widget Name" },
-                { type: "th", content: "URL" },
-                { type: "th", content: "Response" },
-              ],
-            },
-            ...data.map((item) => ({
-              type: "tr",
-              content: [
-                { type: "td", content: item.widgetName },
-                { type: "td", content: item.url },
-                { type: "td", content: JSON.stringify(item.response) },
-              ],
-            })),
-          ],
-        },
-      ],
-    },
-  ]);
+          }
+        </style>
+      </head>
+      <body>
+        <div class="info">
+          <p>Tenant ID: ${tenantInfo.id}</p>
+          <p>Tenant Name: ${tenantInfo.name}</p>
+          <p>Product Name: ${tenantInfo.productName}</p>
+        </div>
+        <table border="1">
+        <tr>
+        <th>Widget Name</th>
+        <th>URL with Assignment Groups</th>
+        <th>Response with Assignment Groups</th>
+        <th>URL without Assignment Groups</th>
+        <th>Response without Assignment Groups</th>
+      </tr>
+      ${data
+        .map(
+          (item) => `
+        <tr>
+          <td>${item.widgetName}</td>
+          <td><a href="${item.urlWithAssignmentGroups}" target="_blank">${item.urlWithAssignmentGroups}</a></td>
+          <td>
+          <div>Over all response count : ${item.countWithAssignmentGroups}</div>
+          <div>Sample response object : ${JSON.stringify(item.responseWithAssignmentGroups)}</div>
+          </td>
+          <td><a href="${item.urlWithoutAssignmentGroups}" target="_blank">${item.urlWithoutAssignmentGroups}</a></td>
+          <td>
+          <div>Over all response count : ${item.countWithoutAssignmentGroups}</div>
+          <div>Sample response object : ${JSON.stringify(item.responseWithoutAssignmentGroups)}</div>          
+          </td>
+        </tr>
+          `
+        )
+        .join("")}
+        </table>
+      </body>
+    </html>
+  `;
 
-  fs.writeFileSync(`${tenantInfo.name}-validator-result.html`, html.renderHTML());
+  fs.writeFileSync(`${tenantInfo.name}-${tenantInfo.productName}-validator-result.html`, htmlContent);
 }
 
 (async function main() {
-  pgClient.initPool("TENSAI_DB", {
-    ...configuration.database.test,
-    database: "tensaidb",
-  });
+  try {
+    pgClient.initPool("TENSAI_DB", {
+      ...configuration.database.test,
+      database: "tensaidb",
+    });
 
-  pgClient.initPool("TENSAI_AUTH_DB", {
-    ...configuration.database.test,
-    database: "tensaiauthdb",
-  });
+    pgClient.initPool("TENSAI_AUTH_DB", {
+      ...configuration.database.test,
+      database: "tensaiauthdb",
+    });
 
-  const tenantName = await prompt("Enter the tenant name ");
+    const tenantName = await prompt("Enter the tenant name ");
 
-  if (!tenantName) {
-    throw new Error("Tenant name is required");
+    if (!tenantName) {
+      throw new Error("Tenant name is required");
+    }
+
+    const tenant = await getTenantByNameHelper(tenantName);
+
+    const product = await getProductByNameHelper({ tenantId: tenant?.id, productName: "servicenow" });
+
+    const assignmentGroup = await getAssignmentGroupsByTenantId(tenant?.id);
+
+    const assignmentGroups = JSON.parse(assignmentGroup?.assignmentGroupListSelectedJson)?.map((obj) => obj.sys_id);
+
+    const data = await parseCsv("./service_insights-aging_inc&tasks.csv");
+
+    const serviceNowData = await processCsv(data, assignmentGroups.join(",") ?? [], JSON.parse(product?.productConfigurationJson));
+
+    const tenantInfo = {
+      id: tenant.id,
+      name: tenant.name,
+      productName: product.name,
+    };
+
+    await createHtmlReport(serviceNowData, tenantInfo);
+    logger.info("HTML report generated successfully.");
+  } catch (error) {
+    logger.error("An error occurred:", error);
   }
-
-  const tenant = await getTenantByNameHelper(tenantName);
-
-  const product = await getProductByNameHelper({ tenantId: tenant?.id, productName: "ServiceNow" });
-
-  const assignmentGroup = await getAssignmentGroupsByTenantId(tenant?.id);
-
-  const assignmentGroups = JSON.parse(assignmentGroup?.assignmentGroupListSelectedJson)?.map((obj) => obj.sys_id);
-
-  const data = await parseCsv("./service_insights-aging_inc&tasks.csv");
-
-  const serviceNowData = await processCsv(data, assignmentGroups.join(",") ?? [], JSON.parse(product?.productConfigurationJson));
-
-  await createHtmlReport(serviceNowData, tenant, product);
 })();
