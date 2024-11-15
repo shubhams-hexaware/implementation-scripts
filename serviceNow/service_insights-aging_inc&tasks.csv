@@ -1,0 +1,14 @@
+widgetName,url
+Aging Incidents,/incident_list.do?sysparm_query=active%3Dtrue%5EstateNOT%20IN8%2C6%2C7&sysparm_view=
+Aging Incidents Breakdown,/incident_list.do?sysparm_query=active%3Dtrue%5EstateNOT%20IN8%2C6%2C7&sysparm_view=
+Last Updated Incidents,/incident_list.do?sysparm_query=active%3Dtrue%5EstateNOT%20IN8%2C6%2C7%5Eassigned_toISNOTEMPTY%5Esys_updated_on%3C%3Djavascript%3Ags.dateGenerate('2024-04-01%2007%3A52%3A50')%5Esys_updated_on%3Ejavascript%3Ags.dateGenerate('2024-03-31%2007%3A52%3A50')&sysparm_view=change_requests
+Last Updated Incidents Breakdown,/incident_list.do?sysparm_query=active%3Dtrue%5EstateNOT%20IN8%2C6%2C7%5Eassigned_toISNOTEMPTY%5Esys_updated_on%3C%3Djavascript%3Ags.dateGenerate('2024-04-01%2007%3A52%3A50')%5Esys_updated_on%3Ejavascript%3Ags.dateGenerate('2024-03-31%2007%3A52%3A50')&sysparm_view=change_requests
+Incident Daily Trends Active,/incident_list.do?sysparm_query=active%3Dtrue%5EstateNOT%20IN8%2C6%2C7&sysparm_view=
+Incident Daily Trends Aging (>15 days),/incident_list.do?sysparm_query=active%3Dtrue%5EstateNOT%20IN8%2C6%2C7%5Esys_created_onRELATIVELT%40dayofweek%40ago%4015&sysparm_view=
+Incident Daily Trends Pending Update (>15 days),/incident_list.do?sysparm_query=active%3Dtrue%5EstateNOT%20IN8%2C6%2C7%5Esys_updated_onRELATIVELT%40dayofweek%40ago%4015&sysparm_view=
+Aging SC Tasks,/sc_task_list.do?sysparm_query=active%3Dtrue%5EstateNOT%20IN3%2C4%2C7&sysparm_view=
+Aging SC Tasks Breakdown,/sc_task_list.do?sysparm_query=active%3Dtrue%5EstateNOT%20IN3%2C4%2C7&sysparm_view=
+Last Updated SC Tasks Breakdown,/sc_task_list.do?sysparm_query=active%3Dtrue%5EstateNOT%20IN3%2C4%2C7%5Eassigned_toISNOTEMPTY%5Esys_updated_on%3C%3Djavascript%3Ags.dateGenerate('2024-04-01%2008%3A21%3A14')%5Esys_updated_on%3Ejavascript%3Ags.dateGenerate('2024-03-31%2008%3A21%3A14')&sysparm_view=
+SC Tasks Daily Trend Active,/sc_task_list.do?sysparm_query=active%3Dtrue%5EstateNOT%20IN3%2C4%2C7&sysparm_view=
+SC Tasks Daily Trend Aging (>15 days),/sc_task_list.do?sysparm_query=active%3Dtrue%5EstateNOT%20IN3%2C4%2C7%5Esys_created_onRELATIVELT%40dayofweek%40ago%4015&sysparm_view=
+SC Tasks Daily Trend Pending Update (>15 days),/sc_task_list.do?sysparm_query=active%3Dtrue%5EstateNOT%20IN3%2C4%2C7%5Esys_updated_onRELATIVELT%40dayofweek%40ago%4015&sysparm_view=

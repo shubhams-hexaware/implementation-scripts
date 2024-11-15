@@ -1,0 +1,46 @@
+[
+ {
+  "widgetConfigurationJSON": "{\"requestBody\":null,\"requestBody1\":null,\"requestBody2\":null,\"requestBody3\":null,\"apiUrl\":\"/now/stats/incident_sla?sysparm_query=inc_assignment_groupSTARTSWITHVNT-%5EORinc_assignment_groupSTARTSWITHVNT%20SS%20ServiceDesk%5EORinc_assignment_groupSTARTSWITHVNT%20SS%20-%20ServiceNow%20Tier%5Etaskslatable_stageNOT%20INin_progress%2Cpaused%5Einc_incident_state%3D7%5Einc_sys_created_onBETWEENjavascript%3Ags.dateGenerate('{start}')%40javascript%3Ags.dateGenerate('{end}')%5Etaskslatable_sla.target%3Dresponse{callerFilter}{companyFilter}&sysparm_count=true&sysparm_group_by=taskslatable_has_breached,inc_priority&sysparm_display_value=true\",\"apiUrl1\":\"/now/stats/incident_sla?sysparm_query=inc_assignment_groupSTARTSWITHVNT-%5EORinc_assignment_groupSTARTSWITHVNT%20SS%20ServiceDesk%5EORinc_assignment_groupSTARTSWITHVNT%20SS%20-%20ServiceNow%20Tier%5Einc_incident_state%3D7%5Einc_resolved_atBETWEENjavascript%3Ags.dateGenerate('{start}')%40javascript%3Ags.dateGenerate('{end}')%5EORinc_closed_atBETWEENjavascript%3Ags.dateGenerate('{start}')%40javascript%3Ags.dateGenerate('{end}')%5Etaskslatable_sla.target%3Dresolution{callerFilter}{companyFilter}&sysparm_count=true&sysparm_group_by=taskslatable_has_breached,inc_priority&sysparm_display_value=true\",\"apiUrl2\":null,\"apiUrl3\":null}",
+  "widgetProductLink": "NULL",
+  "systemViewDashboardId": "5",
+  "name": "SLA ITSM",
+  "description": "SLA ITSM",
+  "code": "3a01a116-91d8-4276-95ba-b05589acdaa0",
+  "widgetConfigurationTemplate": "",
+  "subTitle": "NULL",
+  "dashboardName": "Quarterly Compliance"
+ },
+ {
+  "widgetConfigurationJSON": "{\"requestBody\":{\"size\":0,\"query\":{\"bool\":{\"must\":[{\"terms\":{\"monitor.name\":[\"Hosts\"]}}],\"filter\":{\"range\":{\"@timestamp\":{\"gte\":\"{1}\",\"lte\":\"{2}\",\"format\":\"strict_date_optional_time||epoch_millis\"}}}}},\"aggs\":{\"timeseries\":{\"auto_date_histogram\":{\"field\":\"@timestamp\",\"buckets\":1},\"aggs\":{\"numerator\":{\"filter\":{\"bool\":{\"must\":[],\"filter\":[{\"bool\":{\"should\":[{\"match_phrase\":{\"monitor.status\":\"up\"}}],\"minimum_should_match\":1}}],\"should\":[],\"must_not\":[]}}},\"denominator\":{\"filter\":{\"bool\":{\"must\":[],\"filter\":[{\"bool\":{\"should\":[{\"bool\":{\"should\":[{\"match_phrase\":{\"monitor.status\":\"down\"}}],\"minimum_should_match\":1}},{\"bool\":{\"should\":[{\"match_phrase\":{\"monitor.status\":\"up\"}}],\"minimum_should_match\":1}}],\"minimum_should_match\":1}}],\"should\":[],\"must_not\":[]}}},\"da7aca0a-7059-4605-8188-312ad9c80276\":{\"bucket_script\":{\"buckets_path\":{\"numerator\":\"numerator>_count\",\"denominator\":\"denominator>_count\"},\"script\":\"(params.numerator != null && params.denominator != null && params.denominator > 0 ? params.numerator / params.denominator : 0)*100\"}}}}}},\"requestBody1\":{\"size\":0,\"query\":{\"bool\":{\"must\":[{\"terms\":{\"monitor.name\":[\"Network\"]}}],\"filter\":{\"range\":{\"@timestamp\":{\"gte\":\"{1}\",\"lte\":\"{2}\",\"format\":\"strict_date_optional_time||epoch_millis\"}}}}},\"aggs\":{\"timeseries\":{\"auto_date_histogram\":{\"field\":\"@timestamp\",\"buckets\":1},\"aggs\":{\"numerator\":{\"filter\":{\"bool\":{\"must\":[],\"filter\":[{\"bool\":{\"should\":[{\"match_phrase\":{\"monitor.status\":\"up\"}}],\"minimum_should_match\":1}}],\"should\":[],\"must_not\":[]}}},\"denominator\":{\"filter\":{\"bool\":{\"must\":[],\"filter\":[{\"bool\":{\"should\":[{\"bool\":{\"should\":[{\"match_phrase\":{\"monitor.status\":\"down\"}}],\"minimum_should_match\":1}},{\"bool\":{\"should\":[{\"match_phrase\":{\"monitor.status\":\"up\"}}],\"minimum_should_match\":1}}],\"minimum_should_match\":1}}],\"should\":[],\"must_not\":[]}}},\"da7aca0a-7059-4605-8188-312ad9c80276\":{\"bucket_script\":{\"buckets_path\":{\"numerator\":\"numerator>_count\",\"denominator\":\"denominator>_count\"},\"script\":\"(params.numerator != null && params.denominator != null && params.denominator > 0 ? params.numerator / params.denominator : 0)*100\"}}}}}},\"requestBody2\":null,\"requestBody3\":null,\"apiUrl\":\"/heartbeat-8.4.2/_search\",\"apiUrl1\":null,\"apiUrl2\":null,\"apiUrl3\":null}",
+  "widgetProductLink": "NULL",
+  "systemViewDashboardId": "5",
+  "name": "SLA Infra",
+  "description": "SLA Infra",
+  "code": "117a73f5-7d50-4f61-8b87-a0ca4a032233",
+  "widgetConfigurationTemplate": "",
+  "subTitle": "NULL",
+  "dashboardName": "Quarterly Compliance"
+ },
+ {
+  "widgetConfigurationJSON": "{\"requestBody\":null,\"requestBody1\":null,\"requestBody2\":null,\"requestBody3\":null,\"apiUrl\":\"/now/table/incident_sla?sysparm_query=inc_assignment_groupSTARTSWITHVNT-%5EORinc_assignment_groupSTARTSWITHVNT%20SS%20ServiceDesk%5EORinc_assignment_groupSTARTSWITHVNT%20SS%20-%20ServiceNow%20Tier%5Etaskslatable_has_breached%3Dtrue%5Etaskslatable_stage!%3Dcancelled%5Einc_sys_created_onBETWEENjavascript%3Ags.dateGenerate('{start}')%40javascript%3Ags.dateGenerate('{end}')%5Einc_priority={priorityFilter}%5Etaskslatable_sla.target%3Dresponse{callerFilter}{companyFilter}&sysparm_display_value=true&sysparm_fields=inc_number%2Cinc_priority%2Cinc_assignment_group%2Ctaskslatable_business_duration%2Cinc_comments_and_work_notes\",\"apiUrl1\":\"/now/table/incident_sla?sysparm_query=inc_assignment_groupSTARTSWITHVNT-%5EORinc_assignment_groupSTARTSWITHVNT%20SS%20ServiceDesk%5EORinc_assignment_groupSTARTSWITHVNT%20SS%20-%20ServiceNow%20Tier%5Etaskslatable_has_breached%3Dtrue%5Etaskslatable_stage!%3Dcancelled%5Einc_resolved_atBETWEENjavascript%3Ags.dateGenerate('{start}')%40javascript%3Ags.dateGenerate('{end}')%5EORinc_closed_atBETWEENjavascript%3Ags.dateGenerate('{start}')%40javascript%3Ags.dateGenerate('{end}')%5Einc_priority={priorityFilter}%5Etaskslatable_sla.target%3Dresolution{callerFilter}{companyFilter}&sysparm_count=true&sysparm_display_value=true&sysparm_fields=inc_number%2Cinc_priority%2Cinc_assignment_group%2Ctaskslatable_business_duration%2Cinc_comments_and_work_notes\",\"apiUrl2\":null,\"apiUrl3\":null}",
+  "widgetProductLink": "NULL",
+  "systemViewDashboardId": "5",
+  "name": "SLA ITSM - DrillDown",
+  "description": "SLA ITSM - DrillDown",
+  "code": "ebb28923-2e65-467d-981b-d378ac6ec36a",
+  "widgetConfigurationTemplate": "",
+  "subTitle": "NULL",
+  "dashboardName": "Quarterly Compliance"
+ },
+ {
+  "widgetConfigurationJSON": "{\"requestBody\":null,\"requestBody1\":null,\"requestBody2\":null,\"requestBody3\":null,\"apiUrl\":\"/historical-stats/ctr-denormalized\",\"apiUrl1\":null,\"apiUrl2\":null,\"apiUrl3\":null}",
+  "widgetProductLink": "NULL",
+  "systemViewDashboardId": "5",
+  "name": "SLA Contact Center",
+  "description": "SLA Contact Center",
+  "code": "4b119474-02e5-44eb-ba3a-1afb9d67bd91",
+  "widgetConfigurationTemplate": "",
+  "subTitle": "NULL",
+  "dashboardName": "Quarterly Compliance"
+ }
+]

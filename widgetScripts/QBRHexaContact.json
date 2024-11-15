@@ -1,0 +1,13 @@
+[
+ {
+  "widgetConfigurationJSON": "{\"requestBody\":null,\"requestBody1\":null,\"requestBody2\":null,\"requestBody3\":null,\"apiUrl\":\"/historical-stats/ctr-denormalized\",\"apiUrl1\":null,\"apiUrl2\":null,\"apiUrl3\":null}",
+  "widgetProductLink": "NULL",
+  "systemViewDashboardId": "5",
+  "name": "SLA Contact Center",
+  "description": "SLA Contact Center",
+  "code": "4b119474-02e5-44eb-ba3a-1afb9d67bd91",
+  "widgetConfigurationTemplate": "",
+  "subTitle": "NULL",
+  "dashboardName": "Quarterly Compliance"
+ }
+]
