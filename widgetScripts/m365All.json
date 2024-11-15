@@ -1,0 +1,74 @@
+[
+ {
+  "widgetConfigurationJSON": "{\"requestBody\":null,\"requestBody1\":null,\"requestBody2\":null,\"requestBody3\":null,\"apiUrl\":null,\"apiUrl1\":null,\"apiUrl2\":null,\"apiUrl3\":null,\"assignmentGroupsList\":[]}",
+  "widgetProductLink": "NULL",
+  "systemViewDashboardId": "4",
+  "name": "Azure AD Drilldown",
+  "description": "Azure AD Drilldown",
+  "code": "227f540b-697c-45d0-9255-57fd767129c7",
+  "widgetConfigurationTemplate": "NULL",
+  "subTitle": "NULL",
+  "dashboardName": "M365 Insights",
+  "productMasterId": "89"
+ },
+ {
+  "widgetConfigurationJSON": "{\"requestBody\":null,\"requestBody1\":null,\"requestBody2\":null,\"requestBody3\":null,\"apiUrl\":null,\"apiUrl1\":null,\"apiUrl2\":null,\"apiUrl3\":null,\"assignmentGroupsList\":[]}",
+  "widgetProductLink": "NULL",
+  "systemViewDashboardId": "4",
+  "name": "Overview Tab",
+  "description": "Overview Tab Description",
+  "code": "05DB6E14-8301-4B0B-A680-AB0B965B59F2",
+  "widgetConfigurationTemplate": "",
+  "subTitle": "NULL",
+  "dashboardName": "M365 Insights",
+  "productMasterId": "89"
+ },
+ {
+  "widgetConfigurationJSON": "{\"requestBody\":null,\"requestBody1\":null,\"requestBody2\":null,\"requestBody3\":null,\"apiUrl\":null,\"apiUrl1\":null,\"apiUrl2\":null,\"apiUrl3\":null,\"assignmentGroupsList\":[]}",
+  "widgetProductLink": "NULL",
+  "systemViewDashboardId": "4",
+  "name": "AzureAD Tab",
+  "description": "AzureAD Tab Description",
+  "code": "F3FE3FA9-52DD-435D-8D8C-2A76F09F0643",
+  "widgetConfigurationTemplate": "",
+  "subTitle": "NULL",
+  "dashboardName": "M365 Insights",
+  "productMasterId": "89"
+ },
+ {
+  "widgetConfigurationJSON": "{\"requestBody\":null,\"requestBody1\":null,\"requestBody2\":null,\"requestBody3\":null,\"apiUrl\":null,\"apiUrl1\":null,\"apiUrl2\":null,\"apiUrl3\":null,\"assignmentGroupsList\":[]}",
+  "widgetProductLink": "NULL",
+  "systemViewDashboardId": "4",
+  "name": "Exchange Tab",
+  "description": "Exchange Tab Description",
+  "code": "003135A4-0DF4-41EB-ADA5-3B1A162B8BE5",
+  "widgetConfigurationTemplate": "",
+  "subTitle": "NULL",
+  "dashboardName": "M365 Insights",
+  "productMasterId": "89"
+ },
+ {
+  "widgetConfigurationJSON": "{\"requestBody\":null,\"requestBody1\":null,\"requestBody2\":null,\"requestBody3\":null,\"apiUrl\":null,\"apiUrl1\":null,\"apiUrl2\":null,\"apiUrl3\":null,\"assignmentGroupsList\":[]}",
+  "widgetProductLink": "NULL",
+  "systemViewDashboardId": "4",
+  "name": "Teams Tab",
+  "description": "Teams Tab Description",
+  "code": "857817CA-9C2B-4228-8B61-725D0CB93F38",
+  "widgetConfigurationTemplate": "",
+  "subTitle": "NULL",
+  "dashboardName": "M365 Insights",
+  "productMasterId": "89"
+ },
+ {
+  "widgetConfigurationJSON": "{\"requestBody\":null,\"requestBody1\":null,\"requestBody2\":null,\"requestBody3\":null,\"apiUrl\":null,\"apiUrl1\":null,\"apiUrl2\":null,\"apiUrl3\":null,\"assignmentGroupsList\":[]}",
+  "widgetProductLink": "NULL",
+  "systemViewDashboardId": "4",
+  "name": "Security Tab",
+  "description": "Security Tab Description",
+  "code": "46f0f13e-5ef4-41e9-9af8-cd8d03acba0d",
+  "widgetConfigurationTemplate": "",
+  "subTitle": "NULL",
+  "dashboardName": "M365 Insights",
+  "productMasterId": "89"
+ }
+]

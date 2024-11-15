@@ -1,0 +1,13 @@
+[
+ {
+  "widgetConfigurationJSON": "{\r\n    \"requestBody\": {\r\n        \"size\": 0,\r\n        \"query\": {\r\n            \"bool\": {\r\n                \"must\": [\r\n                    {\r\n                        \"terms\": {\r\n                            \"hex_devicecategory\": [\r\n                                \"Network\"\r\n                            ]\r\n                        }\r\n                    },\r\n                    {\r\n                        \"term\": {\r\n                            \"monitor.status\": {\r\n                                \"value\": \"down\"\r\n                            }\r\n                        }\r\n                    }\r\n                ],\r\n                \"filter\": [\r\n                    {\r\n                        \"range\": {\r\n                            \"@timestamp\": {\r\n                                \"gte\": \"now-15m\"\r\n                            }\r\n                        }\r\n                    }\r\n                ]\r\n            }\r\n        },\r\n        \"aggregations\": {\r\n            \"device_type\": {\r\n                \"terms\": {\r\n                    \"field\": \"hex_devicecategory\"\r\n                },\r\n                \"aggregations\": {\r\n                    \"host\": {\r\n                        \"cardinality\": {\r\n                            \"field\": \"hex_hostname\"\r\n                        }\r\n                    }\r\n                }\r\n            }\r\n        }\r\n    },\r\n    \"requestBody1\": null,\r\n    \"requestBody2\": null,\r\n    \"requestBody3\": null,\r\n    \"apiUrl\": \"/heartbeat-*/_search\",\r\n    \"apiUrl1\": null,\r\n    \"apiUrl2\": null,\r\n    \"apiUrl3\": null\r\n}",
+  "widgetProductLink": "https://subsea7-tensai.kb.eastus2.azure.elastic-cloud.com:9243/s/subsea7-dashboards/app/dashboards#/view/ee5da700-1887-11ed-9164-df73ef3be3ab?_g=(filters:!(),refreshInterval:(pause:!f,value:15000),time:(from:%272023-09-30T18:30:00.000Z%27,to:%272023-10-31T18:29:59.000Z%27))",
+  "systemViewDashboardId": "6",
+  "name": "Non-available Devices Breakdown",
+  "description": "Non-available Devices Breakdown description",
+  "code": "1844997b-70f6-4169-800c-96402763bdae",
+  "widgetConfigurationTemplate": "",
+  "subTitle": "",
+  "dashboardName": "AIOps Insights"
+ }
+]

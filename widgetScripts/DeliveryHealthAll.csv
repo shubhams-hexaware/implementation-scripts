@@ -1,0 +1,332 @@
+widgetConfigurationJSON,widgetProductLink,systemViewDashboardId,name,description,code,widgetConfigurationTemplate,subTitle,dashboardName
+"{
+  ""requestBody3"": {
+    ""DataResponseVersion"": ""1.0""
+  },
+  ""apiUrl"": ""/now/stats/incident?sysparm_count=true&sysparm_query=stateNOT IN6,8,7"",
+  ""apiUrl1"": ""/now/table/incident?sysparm_limit={countValue}&sysparm_offset=0&sysparm_no_count=false&sysparm_display_value=all&sysparm_query=stateNOT IN6,8,7&sysparm_fields=company,assignment_group,business_service,caller_id"",
+  ""napiUrl"": ""/now/stats/incident?sysparm_count=true&sysparm_display_value=true&sysparm_query={filter}stateNOT IN6,8,7"",
+  ""assignmentGroupsList"": []
+}",https://subsea7.service-now.com/incident_list.do?sysparm_query=stateNOT%20IN6%2C8%2C7&sysparm_view=,18,Total Open Incident @ 8 AM,Get Total Open Incident @ 8 AM w.r.t to a timeperiod from servicenow stats api.,011d3824-0bf3-45ea-9bc9-f842391d918b,,NULL,Delivery Health
+"{
+  ""apiUrl"": ""/now/table/incident?sysparm_limit={limitValue}&sysparm_offset={offsetValue}&sysparm_no_count=false&sysparm_display_value=true&sysparm_query={filter}priorityIN1%2C2%2C3%2C4%5Esys_created_onONThis year@javascript:gs.beginningOfThisYear()@javascript:gs.endOfThisYear()%5EORDERBYnumber&sysparm_fields=sys_created_on,closed_at"",
+  ""apiUrl1"": null,
+  ""napiUrl"": ""/now/stats/incident?sysparm_count=true&sysparm_display_value=true&sysparm_query={filter}priorityIN1%2C2%2C3%2C4%5Esys_created_onONThis year@javascript:gs.beginningOfThisYear()@javascript:gs.endOfThisYear()&sysparm_group_by=sys_created_on"",
+  ""napiUrl1"": ""/now/stats/incident?sysparm_count=true&sysparm_display_value=true&sysparm_query={filter}priorityIN1%2C2%2C3%2C4%5Esys_created_onONThis year@javascript:gs.beginningOfThisYear()@javascript:gs.endOfThisYear()%5Eclosed_atONThis year@javascript:gs.beginningOfThisYear()@javascript:gs.endOfThisYear()&sysparm_group_by=sys_created_on%2Cclosed_at"",
+  ""assignmentGroupsList"": []
+}",https://subsea7.service-now.com/incident_list.do?sysparm_query=sys_created_onONThis%20month%40javascript%3Ags.beginningOfThisMonth()%40javascript%3Ags.endOfThisMonth()%5EpriorityIN1%2C2%2C3%2C4&sysparm_view=,18,Total Incidents Created VS Closed Via Priorities,Get Total Incidents Created VS Closed Via Priorities and other related data w.r.t to a timeperiod from servicenow stats api.,b0ec2b4b-8909-4a3e-9938-032f0298fc8a,,NULL,Delivery Health
+"{
+  ""apiUrl"": null,
+  ""apiUrl1"": null,
+  ""napiUrl"": ""/now/stats/incident?sysparm_count=true&sysparm_display_value=true&sysparm_query={filter}stateNOT%20IN6%2C8%2C7%5Ereopen_count%3E0%5Esys_created_onONThis year@javascript:gs.beginningOfThisYear()@javascript:gs.endOfThisYear()&sysparm_group_by=sys_created_on"",
+  ""assignmentGroupsList"": []
+}",https://subsea7.service-now.com/incident_list.do?sysparm_query=stateNOT%20IN6%2C8%2C7%5Ereopen_count%3E0%5Esys_created_onONThis year@javascript:gs.beginningOfThisYear()@javascript:gs.endOfThisYear()&sysparm_view=,18,Volume Of Reopened Incidents,Get Volume Of Reopened Incidents and other related data w.r.t to a timeperiod from servicenow stats api.,82799ea1-2dac-45bd-a8fe-6ee498ef25a9,,NULL,Delivery Health
+"{
+  ""apiUrl"": ""/now/table/sc_task?sysparm_limit={limitValue}&sysparm_offset={offsetValue}&sysparm_no_count=false&sysparm_display_value=true&sysparm_query={filter}priorityIN1%2C2%2C3%2C4%5Esys_created_onONThis year@javascript:gs.beginningOfThisYear()@javascript:gs.endOfThisYear()%5EORDERBYnumber&sysparm_fields=sys_created_on,closed_at"",
+  ""apiUrl1"": null,
+  ""napiUrl"": ""/now/stats/sc_task?sysparm_count=true&sysparm_display_value=true&sysparm_query={filter}priorityIN1%2C2%2C3%2C4%5Esys_created_onONThis year@javascript:gs.beginningOfThisYear()@javascript:gs.endOfThisYear()&sysparm_group_by=sys_created_on"",
+  ""napiUrl1"": ""/now/stats/sc_task?sysparm_count=true&sysparm_display_value=true&sysparm_query={filter}priorityIN1%2C2%2C3%2C4%5Esys_created_onONThis year@javascript:gs.beginningOfThisYear()@javascript:gs.endOfThisYear()%5Eclosed_atONThis year@javascript:gs.beginningOfThisYear()@javascript:gs.endOfThisYear()&sysparm_group_by=sys_created_on%2Cclosed_at"",
+  ""assignmentGroupsList"": []
+}",https://subsea7.service-now.com/sc_task_list.do?sysparm_query=priorityIN1%2C2%2C3%2C4%5Esys_created_onONThis year@javascript:gs.beginningOfThisYear()@javascript:gs.endOfThisYear()%5Eclosed_atONThis year@javascript:gs.beginningOfThisYear()@javascript:gs.endOfThisYear()&sysparm_view=,18,Total SR Tasks Created Vs Closed Via Priorities,Get Total SR Tasks Created Vs Closed Via Priorities and other related data w.r.t to a timeperiod from servicenow stats api.,3776fc13-97ff-4f46-b323-d2d24f8abb4e,,NULL,Delivery Health
+"{
+  ""apiUrl"": null,
+  ""apiUrl1"": null,
+  ""napiUrl"": ""/now/stats/sc_task?sysparm_display_value=true&sysparm_query={filter}sys_created_onONThis year@javascript:gs.beginningOfThisYear()@javascript:gs.endOfThisYear()^priorityIN1%2C2%2C3%2C4^stateIN3&sysparm_avg_fields=business_duration&sysparm_group_by=sys_created_on&sysparm_count=true"",
+  ""assignmentGroupsList"": []
+}",https://subsea7.service-now.com/sc_task_list.do?sysparm_query=sys_created_onONThis year@javascript:gs.beginningOfThisYear()@javascript:gs.endOfThisYear()^priorityIN1%2C2%2C3%2C4^stateIN3&sysparm_first_row=1&sysparm_view=,18,Average Elapsed Time SR Via Priorities,Get Average Elapsed Time SR Via Priorities Received (all channels) w.r.t to a timeperiod from servicenow stats api.,5a1379e3-c591-4588-a20b-a3bf6178900c,,NULL,Delivery Health
+"{
+  ""apiUrl"": null,
+  ""apiUrl1"": null,
+  ""napiUrl"": ""/now/stats/incident?sysparm_display_value=true&sysparm_query={filter}resolved_atONThis year@javascript:gs.beginningOfThisYear()@javascript:gs.endOfThisYear()^state=7^priorityIN1%2C2%2C3%2C4&sysparm_avg_fields={sysparmAvgField}&sysparm_group_by=resolved_at&sysparm_count=true"",
+  ""napiUrl1"": ""/now/stats/incident_sla?sysparm_display_value=true&sysparm_query={filter}inc_closed_atONThis year@javascript:gs.beginningOfThisYear()@javascript:gs.endOfThisYear()^taskslatable_stageNOT INin_progress,cancelled,paused^{callerIdsFilter}inc_state=7^inc_priorityIN1%2C2%2C3%2C4&sysparm_avg_fields={sysparmAvgField}&sysparm_group_by=inc_closed_at&sysparm_count=true"",
+  ""assignmentGroupsList"": []
+}",https://subsea7.service-now.com/incident_list.do?sysparm_query=resolved_atONThis year@javascript:gs.beginningOfThisYear()@javascript:gs.endOfThisYear()^state=7^priorityIN1%2C2%2C3%2C4&sysparm_view=,18,Average Elapsed Time INC Via Priorities,Get Average Elapsed Time INC Via Priorities Received (all channels) w.r.t to a timeperiod from servicenow stats api.,77dd9c37-be90-45ef-b35a-f17061d3ec33,,NULL,Delivery Health
+"{
+  ""apiUrl"": null,
+  ""apiUrl1"": null,
+  ""napiUrl"": ""/now/stats/incident?sysparm_count=true&sysparm_display_value=true&sysparm_query={filter}contact_type%3Dself-service%5Esys_created_onONThis year@javascript:gs.beginningOfThisYear()@javascript:gs.endOfThisYear()&sysparm_group_by=sys_created_on"",
+  ""assignmentGroupsList"": []
+}",https://subsea7.service-now.com/incident_list.do?sysparm_query=contact_type%3Dself-service%5Esys_created_onBETWEENjavascript%3Ags.dateGenerate('2024-01-01'%2C'00%3A00%3A00')%40javascript%3Ags.dateGenerate('2024-01-31'%2C'23%3A59%3A59')&sysparm_view=,18,Total Incidents Via SelfService,Get Total Incidents Via SelfService and other related data w.r.t to a timeperiod from servicenow stats api.,1acde328-c99b-4539-ac7a-ec570b145e15,,NULL,Delivery Health
+"{
+  ""apiUrl"": null,
+  ""apiUrl1"": null,
+  ""napiUrl"": ""/now/stats/incident?sysparm_count=true&sysparm_display_value=true&sysparm_query={filter}contact_type%3Demail%5Esys_created_onONThis year@javascript:gs.beginningOfThisYear()@javascript:gs.endOfThisYear()&sysparm_group_by=sys_created_on"",
+  ""assignmentGroupsList"": []
+}","https://subsea7.service-now.com/incident_list.do?sysparm_query=contact_type%3Demail%5Esys_created_onBETWEENjavascript%3Ags.dateGenerate('2024-01-01'%2C'00%3A00%3A00')%40javascript%3Ags.dateGenerate('2024-01-31'%2C'23%3A59%3A59')&sysparm_view=
+",18,Total Incidents Via Email,Get Total Incidents Via Email and other related data w.r.t to a timeperiod from servicenow stats api.,258d4584-84cd-48d5-9d4f-e003e52d196b,,NULL,Delivery Health
+"{
+  ""apiUrl"": null,
+  ""apiUrl1"": null,
+  ""napiUrl"": ""/now/stats/incident?sysparm_count=true&sysparm_display_value=true&sysparm_query={filter}contact_type%3Dphone%5Esys_created_onONThis year@javascript:gs.beginningOfThisYear()@javascript:gs.endOfThisYear()&sysparm_group_by=sys_created_on"",
+  ""assignmentGroupsList"": []
+}","https://subsea7.service-now.com/incident_list.do?sysparm_query=contact_type%3Dphone%5Esys_created_onBETWEENjavascript%3Ags.dateGenerate('2024-01-01'%2C'00%3A00%3A00')%40javascript%3Ags.dateGenerate('2024-01-31'%2C'23%3A59%3A59')&sysparm_view=
+",18,Total Incidents Via Call,Get Total Incidents Via Call and other related data w.r.t to a timeperiod from servicenow stats api.,a3ed2445-807e-4499-8c3d-e95e221f1af0,,NULL,Delivery Health
+"{
+  ""requestBody"":null,
+  ""requestBody1"":null,
+  ""requestBody2"":null,
+  ""requestBody3"": {
+    ""TimePeriodFieldName"": ""instance.taken_on"",
+    ""AssignmentGroupFieldName"": ""instance.task_id.assignment_group.sys_id"",
+    ""CompanyFieldName"": ""instance.task_id.company.sys_id"",
+    ""BusinessServiceFieldName"": ""instance.task_id.business_service.sys_id""
+  },
+  
+  ""apiUrl"":""/now/stats/asmt_metric_result?sysparm_query={filter}metric.metric_type.evaluation_method=survey^metric.questionSTARTSWITHHow satisfied are you with your overall service experience?^actual_value={actualValueFilter}^instance.taken_onONThis year@javascript:gs.beginningOfThisYear()@javascript:gs.endOfThisYear()&sysparm_count=true"",
+
+  ""apiUrl1"": ""/now/table/asmt_metric_result?sysparm_query={filter}metric.metric_type.evaluation_method=survey^metric.questionSTARTSWITHHow satisfied are you with your overall service experience?^actual_value={actualValueFilter}^instance.taken_onONThis year@javascript:gs.beginningOfThisYear()@javascript:gs.endOfThisYear()&sysparm_display_value=true&sysparm_fields=actual_value,instance.taken_on&sysparm_limit={limitValue}"",
+
+  ""apiUrl2"":null,
+  ""apiUrl3"":null,
+  ""ratingList"":[5,4,3,2,1]
+}",https://subsea7.service-now.com/nav_to.do?uri=%2Fasmt_metric_result_list.do%3Fsysparm_query%3Dmetric.metric_type.evaluation_method%253Dsurvey%255Emetric.questionLIKEHow%2520satisfied%2520are%2520you%2520with%2520the%2520service%2520provided%2520by%2520IT%253F%255Einstance.taken_onBETWEENjavascript:gs.dateGenerate(%25272023-05-01%2527%252C%252700:00:00%2527)@javascript:gs.dateGenerate(%25272023-05-31%2527%252C%252723:59:59%2527)%26sysparm_first_row%3D1%26sysparm_view%3Dassessment,18,Customer Satisfaction,Get Customer Satisfaction and other related data w.r.t to a timeperiod from servicenow.,207184a6-156c-4baa-9e21-e8c8ca5e5b7b,,NULL,Delivery Health
+"{
+  ""apiUrl"": null,
+  ""apiUrl1"": null,
+  ""napiUrl"": ""/now/stats/incident?sysparm_count=true&sysparm_display_value=true&sysparm_query={filter}priorityIN1%2C2%2C3%2C4%5Esys_created_onONThis year@javascript:gs.beginningOfThisYear()@javascript:gs.endOfThisYear()&sysparm_group_by=sys_created_on"",
+  ""assignmentGroupsList"": []
+}",https://subsea7.service-now.com/incident_list.do?sysparm_query=sys_created_onONThis%20month%40javascript%3Ags.beginningOfThisMonth()%40javascript%3Ags.endOfThisMonth()%5EpriorityIN1%2C2%2C3%2C4&sysparm_view=,18,Total Incidents Via Priorities,Get Total Incidents Via Priorities and other related data w.r.t to a timeperiod from servicenow stats api.,9d3900d3-2f3b-4c6e-a1fd-09956a4ccfe2,,NULL,Delivery Health
+"{
+  ""requestBody"": {
+    ""query"": {
+      ""bool"": {
+        ""filter"": {
+          ""range"": {
+            ""time"": {
+              ""gte"": ""{startOfYear}""
+            }
+          }
+        }
+      }
+    }
+  },
+  ""requestBody1"": null,
+  ""requestBody2"": null,
+  ""requestBody3"": null,
+  ""apiUrl"": ""/{tenantName}_service_request_backlog_30_days_and_above/_search"",
+  ""apiUrl1"": null,
+  ""apiUrl2"": null,
+  ""apiUrl3"": null
+}",https://subsea7.service-now.com/sc_req_item_list.do?sysparm_query=active%3Dtrue%5EstateNOT%20IN3%2C4%2C27%2C29%5Estage!%3Dwaiting_for_approval%5Esys_created_on%3Cjavascript%3Ags.beginningOfLast30Days()&sysparm_view=,18,Service Request Backlog 30 days and above From ELK,Get Service Request Backlog 30 days and above From ELK w.r.t to a timeperiod from servicenow stats api.,f50960b8-29f6-4578-960a-7ee9f68fd370,,NULL,Delivery Health
+"{
+  ""apiUrl"": null,
+  ""apiUrl1"": null,
+  ""napiUrl"": ""/now/stats/incident?sysparm_count=true&sysparm_display_value=true&sysparm_query={filter}u_escalation_timeONThis year@javascript:gs.beginningOfThisYear()@javascript:gs.endOfThisYear()&sysparm_group_by=u_escalation_time"",
+  ""assignmentGroupsList"": []
+}",https://subsea7.service-now.com/incident_list.do?sysparm_query=u_escalation_timeBETWEENjavascript%3Ags.dateGenerate('2024-01-01'%2C'00%3A00%3A00')%40javascript%3Ags.dateGenerate('2024-01-31'%2C'23%3A59%3A59')&sysparm_view=,18,Volume Of Escalations,Get Volume of Escalations Received (all channels) w.r.t to a timeperiod from servicenow stats api.,280292e0-830f-437a-8234-be27cd8e966f,,NULL,Delivery Health
+"{
+  ""apiUrl"": null,
+  ""apiUrl1"": null,
+  ""napiUrl"": ""/now/stats/incident?sysparm_count=true&sysparm_display_value=true&sysparm_query={filter}stateNOT%20IN1%2C6%2C8%2C7%5Eactive%3Dtrue%5Eu_escalation_timeONThis year@javascript:gs.beginningOfThisYear()@javascript:gs.endOfThisYear()&sysparm_group_by=u_escalation_time"",
+  ""assignmentGroupsList"": []
+}",https://subsea7.service-now.com/incident_list.do?sysparm_query=stateNOT%20IN1%2C6%2C8%2C7%5Eactive%3Dtrue%5Eu_escalation_timeBETWEENjavascript%3Ags.dateGenerate(%272023-12-01%27%2C%2700%3A00%3A00%27)%40javascript%3Ags.dateGenerate(%272023-12-31%27%2C%2723%3A59%3A59%27)&sysparm_view=,18,Volume Of Open Escalations,Get Volume of Open Escalations (all channels) w.r.t to a timeperiod from servicenow stats api.,ec0ecee2-db1f-4f6f-8ce0-d3ff61d331e2,,NULL,Delivery Health
+"{
+  ""apiUrl"": null,
+  ""apiUrl1"": null,
+  ""napiUrl"": ""/now/stats/incident?sysparm_display_value=true&sysparm_query={filter}resolved_atONThis year@javascript:gs.beginningOfThisYear()@javascript:gs.endOfThisYear()^state=7^priority=1&sysparm_avg_fields={sysparmAvgField}&sysparm_group_by=resolved_at&sysparm_count=true"",
+  ""napiUrl1"": ""/now/stats/incident_sla?sysparm_display_value=true&sysparm_query={filter}inc_closed_atONThis year@javascript:gs.beginningOfThisYear()@javascript:gs.endOfThisYear()^taskslatable_stageNOT INin_progress,cancelled,paused^{callerIdsFilter}inc_state=7^inc_priority=1&sysparm_avg_fields={sysparmAvgField}&sysparm_group_by=inc_closed_at&sysparm_count=true"",
+  ""assignmentGroupsList"": []
+}","https://subsea7.service-now.com/incident_sla_list.do?sysparm_query=inc_closed_atBETWEENjavascript:gs.dateGenerate('2000-01-01','00:00:00')@javascript:gs.dateGenerate('2024-01-31','23:59:59')^taskslatable_stageNOT INin_progress,cancelled,paused^inc_caller_idISNOTEMPTY^inc_state=7^inc_priority=1&sysparm_view=",18,Average Elapsed time INC P1,Get Average Elapsed time INC P1 Received (all channels) w.r.t to a timeperiod from servicenow stats api.,ed40dee8-7557-4cd0-a455-fbaaead14695,,NULL,Delivery Health
+"{
+  ""apiUrl"": null,
+  ""apiUrl1"": null,
+  ""napiUrl"": ""/now/stats/incident?sysparm_display_value=true&sysparm_query={filter}resolved_atONThis year@javascript:gs.beginningOfThisYear()@javascript:gs.endOfThisYear()^state=7^priority=2&sysparm_avg_fields={sysparmAvgField}&sysparm_group_by=resolved_at&sysparm_count=true"",
+  ""napiUrl1"": ""/now/stats/incident_sla?sysparm_display_value=true&sysparm_query={filter}inc_closed_atONThis year@javascript:gs.beginningOfThisYear()@javascript:gs.endOfThisYear()^taskslatable_stageNOT INin_progress,cancelled,paused^{callerIdsFilter}inc_state=7^inc_priority=2&sysparm_avg_fields={sysparmAvgField}&sysparm_group_by=inc_closed_at&sysparm_count=true"",
+  ""assignmentGroupsList"": []
+}","https://subsea7.service-now.com/incident_sla_list.do?sysparm_query=inc_closed_atBETWEENjavascript:gs.dateGenerate('2000-01-01','00:00:00')@javascript:gs.dateGenerate('2024-01-31','23:59:59')^taskslatable_stageNOT INin_progress,cancelled,paused^inc_caller_idISNOTEMPTY^inc_state=7^inc_priority=2&sysparm_view=",18,Average Elapsed time INC P2,Get Average Elapsed time INC P2 Received (all channels) w.r.t to a timeperiod from servicenow stats api.,74e46b3c-ad22-4ae9-a3a1-3a5dceca2d3e,,NULL,Delivery Health
+"{
+  ""apiUrl"": null,
+  ""apiUrl1"": null,
+  ""napiUrl"": ""/now/stats/incident?sysparm_display_value=true&sysparm_query={filter}resolved_atONThis year@javascript:gs.beginningOfThisYear()@javascript:gs.endOfThisYear()^state=7^priority=3&sysparm_avg_fields={sysparmAvgField}&sysparm_group_by=resolved_at&sysparm_count=true"",
+  ""napiUrl1"": ""/now/stats/incident_sla?sysparm_display_value=true&sysparm_query={filter}inc_closed_atONThis year@javascript:gs.beginningOfThisYear()@javascript:gs.endOfThisYear()^taskslatable_stageNOT INin_progress,cancelled,paused^{callerIdsFilter}inc_state=7^inc_priority=3&sysparm_avg_fields={sysparmAvgField}&sysparm_group_by=inc_closed_at&sysparm_count=true"",
+  ""assignmentGroupsList"": []
+}","https://subsea7.service-now.com/incident_sla_list.do?sysparm_query=inc_closed_atBETWEENjavascript:gs.dateGenerate('2000-01-01','00:00:00')@javascript:gs.dateGenerate('2024-01-31','23:59:59')^taskslatable_stageNOT INin_progress,cancelled,paused^inc_caller_idISNOTEMPTY^inc_state=7^inc_priority=3&sysparm_view=",18,Average Elapsed time INC P3,Get Average Elapsed time INC P3 Received (all channels) w.r.t to a timeperiod from servicenow stats api.,c258f345-2977-4d18-bdf4-a1f18b49f1ea,,NULL,Delivery Health
+"{
+  ""apiUrl"": null,
+  ""apiUrl1"": null,
+  ""napiUrl"": ""/now/stats/incident?sysparm_display_value=true&sysparm_query={filter}resolved_atONThis year@javascript:gs.beginningOfThisYear()@javascript:gs.endOfThisYear()^state=7^priority=4&sysparm_avg_fields={sysparmAvgField}&sysparm_group_by=resolved_at&sysparm_count=true"",
+  ""napiUrl1"": ""/now/stats/incident_sla?sysparm_display_value=true&sysparm_query={filter}inc_closed_atONThis year@javascript:gs.beginningOfThisYear()@javascript:gs.endOfThisYear()^taskslatable_stageNOT INin_progress,cancelled,paused^{callerIdsFilter}inc_state=7^inc_priority=4&sysparm_avg_fields={sysparmAvgField}&sysparm_group_by=inc_closed_at&sysparm_count=true"",
+  ""assignmentGroupsList"": []
+}","https://subsea7.service-now.com/incident_sla_list.do?sysparm_query=inc_closed_atBETWEENjavascript:gs.dateGenerate('2000-01-01','00:00:00')@javascript:gs.dateGenerate('2024-01-31','23:59:59')^taskslatable_stageNOT INin_progress,cancelled,paused^inc_caller_idISNOTEMPTY^inc_state=7^inc_priority=4&sysparm_view=",18,Average Elapsed time INC P4,Get Average Elapsed time INC P4 Received (all channels) w.r.t to a timeperiod from servicenow stats api.,6be95895-36c9-4385-a2fd-ab513ec0d40b,,NULL,Delivery Health
+"{
+  ""apiUrl"": null,
+  ""apiUrl1"": null,
+  ""napiUrl"": ""/now/stats/sc_task?sysparm_display_value=true&sysparm_query={filter}sys_created_onONThis year@javascript:gs.beginningOfThisYear()@javascript:gs.endOfThisYear()^priority=1^stateIN3&sysparm_avg_fields=business_duration&sysparm_group_by=sys_created_on&sysparm_count=true"",
+  ""assignmentGroupsList"": []
+}",https://subsea7.service-now.com/sc_task_list.do?sysparm_query=sys_created_onBETWEENjavascript:gs.dateGenerate(%272000-01-01%27%2C%2700:00:00%27)@javascript:gs.dateGenerate(%272024-01-31%27%2C%2723:59:59%27)%5Epriority%3D1%5EstateIN3&sysparm_first_row=1&sysparm_view=,18,Average Elapsed time SR P1,Get Average Elapsed time SR P1 Received (all channels) w.r.t to a timeperiod from servicenow stats api.,c34784c7-024e-4f07-889f-b1e6a66a9e1d,,NULL,Delivery Health
+"{
+  ""apiUrl"": null,
+  ""apiUrl1"": null,
+  ""napiUrl"": ""/now/stats/sc_task?sysparm_display_value=true&sysparm_query={filter}sys_created_onONThis year@javascript:gs.beginningOfThisYear()@javascript:gs.endOfThisYear()^priority=2^stateIN3&sysparm_avg_fields=business_duration&sysparm_group_by=sys_created_on&sysparm_count=true"",
+  ""assignmentGroupsList"": []
+}",https://subsea7.service-now.com/sc_task_list.do?sysparm_query=sys_created_onBETWEENjavascript:gs.dateGenerate(%272000-01-01%27%2C%2700:00:00%27)@javascript:gs.dateGenerate(%272024-01-31%27%2C%2723:59:59%27)%5Epriority%3D2%5EstateIN3&sysparm_first_row=1&sysparm_view=,18,Average Elapsed time SR P2,Get Average Elapsed time SR P2 Received (all channels) w.r.t to a timeperiod from servicenow stats api.,8d8691a9-d665-45dd-8510-0e31e836478e,,NULL,Delivery Health
+"{
+  ""apiUrl"": null,
+  ""apiUrl1"": null,
+  ""napiUrl"": ""/now/stats/sc_task?sysparm_display_value=true&sysparm_query={filter}sys_created_onONThis year@javascript:gs.beginningOfThisYear()@javascript:gs.endOfThisYear()^priority=3^stateIN3&sysparm_avg_fields=business_duration&sysparm_group_by=sys_created_on&sysparm_count=true"",
+  ""assignmentGroupsList"": []
+}",https://subsea7.service-now.com/sc_task_list.do?sysparm_query=sys_created_onBETWEENjavascript:gs.dateGenerate(%272000-01-01%27%2C%2700:00:00%27)@javascript:gs.dateGenerate(%272024-01-31%27%2C%2723:59:59%27)%5Epriority%3D3%5EstateIN3&sysparm_first_row=1&sysparm_view=,18,Average Elapsed time SR P3,Get Average Elapsed time SR P3 Received (all channels) w.r.t to a timeperiod from servicenow stats api.,28d0a8a2-106a-45bd-ae92-b9a0309b84a8,,NULL,Delivery Health
+"{
+  ""apiUrl"": null,
+  ""apiUrl1"": null,
+  ""napiUrl"": ""/now/stats/sc_task?sysparm_display_value=true&sysparm_query={filter}sys_created_onONThis year@javascript:gs.beginningOfThisYear()@javascript:gs.endOfThisYear()^priority=4^stateIN3&sysparm_avg_fields=business_duration&sysparm_group_by=sys_created_on&sysparm_count=true"",
+  ""assignmentGroupsList"": []
+}",https://subsea7.service-now.com/sc_task_list.do?sysparm_query=sys_created_onBETWEENjavascript:gs.dateGenerate(%272000-01-01%27%2C%2700:00:00%27)@javascript:gs.dateGenerate(%272024-01-31%27%2C%2723:59:59%27)%5Epriority%3D4%5EstateIN3&sysparm_first_row=1&sysparm_view=,18,Average Elapsed time SR P4,Get Average Elapsed time SR P4 Received (all channels) w.r.t to a timeperiod from servicenow stats api.,1a9a0837-b600-4b3a-aeb6-918c3fb98b33,,NULL,Delivery Health
+"{
+  ""requestBody3"": {
+    ""DataResponseVersion"": ""1.0""
+  },
+  ""apiUrl"": ""/now/stats/incident?sysparm_count=true&sysparm_query=stateNOT IN6,8,7^sys_created_onRELATIVELT@dayofweek@ago@5"",
+  ""apiUrl1"": ""/now/table/incident?sysparm_limit={countValue}&sysparm_offset=0&sysparm_no_count=false&sysparm_display_value=all&sysparm_query=stateNOT IN6,8,7^sys_created_onRELATIVELT@dayofweek@ago@5&sysparm_fields=company,assignment_group,business_service,caller_id"",
+  ""napiUrl"": ""/now/stats/incident?sysparm_count=true&sysparm_display_value=true&sysparm_query={filter}stateNOT IN6,8,7^sys_created_onRELATIVELT@dayofweek@ago@5"",
+  ""assignmentGroupsList"": []
+}",https://subsea7.service-now.com/incident_list.do?sysparm_query=sys_created_onBETWEENjavascript:gs.dateGenerate(%272024-01-01%27%2C%2700:00:00%27)@javascript:gs.dateGenerate(%272024-01-31%27%2C%2723:59:59%27)%5EstateNOT%20IN6%2C8%2C7%5Esys_created_onRELATIVELT@dayofweek@ago@5&sysparm_first_row=1&sysparm_view=text_search,18,Aged Ticket Backlog (older than 5 days),Get Aged Ticket Backlog (older than 5 days) w.r.t to a timeperiod from servicenow stats api.,d6249bf2-dfb9-4dbf-bf0b-ae6563c4bc1b,,NULL,Delivery Health
+"{
+  ""requestBody3"": {
+    ""DataResponseVersion"": ""1.0""
+  },
+  ""apiUrl"": ""/now/stats/incident?sysparm_count=true&sysparm_query=stateNOT IN6,8,7^sys_created_onRELATIVELT@dayofweek@ago@30"",
+  ""apiUrl1"": ""/now/table/incident?sysparm_limit={countValue}&sysparm_offset=0&sysparm_no_count=false&sysparm_display_value=all&sysparm_query=stateNOT IN6,8,7^sys_created_onRELATIVELT@dayofweek@ago@30&sysparm_fields=company,assignment_group,business_service,caller_id"",
+  ""napiUrl"": ""/now/stats/incident?sysparm_count=true&sysparm_display_value=true&sysparm_query={filter}stateNOT IN6,8,7^sys_created_onRELATIVELT@dayofweek@ago@30"",
+  ""assignmentGroupsList"": []
+}",https://subsea7.service-now.com/incident_list.do?sysparm_query=stateNOT%20IN6%2C8%2C7%5Esys_created_onRELATIVELT%40dayofweek%40ago%4030&sysparm_view=,18,Incident open more than 30 days,Get Incident open more than 30 days w.r.t to a timeperiod from servicenow stats api.,274a4db2-8b93-4e0b-bc95-214bc5b2a164,,NULL,Delivery Health
+"{
+  ""apiUrl"": null,
+  ""apiUrl1"": null,
+  ""napiUrl"": ""/now/stats/sc_req_item?sysparm_count=true&sysparm_display_value=true&sysparm_query={filter}sys_created_onONThis year@javascript:gs.beginningOfThisYear()@javascript:gs.endOfThisYear()&sysparm_group_by=sys_created_on"",
+  ""assignmentGroupsList"": []
+}",https://subsea7.service-now.com/sc_req_item_list.do?sysparm_query=sys_created_onBETWEENjavascript%3Ags.dateGenerate('2024-01-01'%2C'00%3A00%3A00')%40javascript%3Ags.dateGenerate('2024-01-07'%2C'23%3A59%3A59')&sysparm_view=,18,Service Request Raised,Get Service Request Raised w.r.t to a timeperiod from servicenow stats api.,e2174bab-5150-47b2-8d26-2159ed831b28,,NULL,Delivery Health
+"{
+  ""requestBody3"": {
+    ""DataResponseVersion"": ""1.0""
+  },
+  ""apiUrl"": ""/now/stats/sc_req_item?sysparm_count=true&sysparm_query=active=true^stateNOT IN3,4^stage!=waiting_for_approval^sys_created_onRELATIVELT@dayofweek@ago@5"",
+  ""apiUrl1"": ""/now/table/sc_req_item?sysparm_limit={countValue}&sysparm_offset=0&sysparm_no_count=false&sysparm_display_value=all&sysparm_query=active=true^stateNOT IN3,4^stage!=waiting_for_approval^sys_created_onRELATIVELT@dayofweek@ago@5&sysparm_fields=company,assignment_group,business_service"",
+  ""napiUrl"": ""/now/stats/sc_req_item?sysparm_count=true&sysparm_display_value=true&sysparm_query={filter}active=true^stateNOT IN3,4^stage!=waiting_for_approval^sys_created_onRELATIVELT@dayofweek@ago@5"",
+  ""assignmentGroupsList"": []
+}",https://subsea7.service-now.com/sc_req_item_list.do?sysparm_query=active%3Dtrue%5EstateNOT%20IN3%2C4%2C27%2C29%5Estage!%3Dwaiting_for_approval%5Esys_created_onRELATIVELT%40dayofweek%40ago%405&sysparm_view=,18,Service Request Backlog,Get Service Request Backlog w.r.t to a timeperiod from servicenow stats api.,21efa9bd-cddc-472c-a145-5c595451d055,,NULL,Delivery Health
+"{
+  ""requestBody3"": {
+    ""DataResponseVersion"": ""1.0""
+  },
+  ""apiUrl"": ""/now/stats/sc_req_item?sysparm_count=true&sysparm_query=active=true^stateNOT IN3,4^stage!=waiting_for_approval^sys_created_on<javascript:gs.beginningOfLast30Days()"",
+  ""apiUrl1"": ""/now/table/sc_req_item?sysparm_limit={countValue}&sysparm_offset=0&sysparm_no_count=false&sysparm_display_value=all&sysparm_query=active=true^stateNOT IN3,4^stage!=waiting_for_approval^sys_created_on<javascript:gs.beginningOfLast30Days()&sysparm_fields=company,assignment_group,business_service"",
+  ""napiUrl"": ""/now/stats/sc_req_item?sysparm_count=true&sysparm_display_value=true&sysparm_query={filter}active=true^stateNOT IN3,4^stage!=waiting_for_approval^sys_created_on<javascript:gs.beginningOfLast30Days()"",
+  ""assignmentGroupsList"": []
+}",https://subsea7.service-now.com/sc_req_item_list.do?sysparm_query=active%3Dtrue%5EstateNOT%20IN3%2C4%2C27%2C29%5Estage!%3Dwaiting_for_approval%5Esys_created_on%3Cjavascript%3Ags.beginningOfLast30Days()&sysparm_view=,18,Service Request Backlog 30 days and above,Get Service Request Backlog 30 days and above w.r.t to a timeperiod from servicenow stats api.,83336147-bedc-45de-8f7c-0fb160981938,,NULL,Delivery Health
+"{
+  ""apiUrl"": null,
+  ""apiUrl1"": null,
+  ""napiUrl"": ""/now/stats/incident?sysparm_count=true&sysparm_display_value=true&sysparm_query={filter}priority%3D1%5Esys_created_onONThis year@javascript:gs.beginningOfThisYear()@javascript:gs.endOfThisYear()&sysparm_group_by=sys_created_on"",
+  ""assignmentGroupsList"": []
+}",https://subsea7.service-now.com/incident_list.do?sysparm_query=sys_created_onONThis%20month%40javascript%3Ags.beginningOfThisMonth()%40javascript%3Ags.endOfThisMonth()%5Epriority%3D1%5Eassignment_groupISNOTEMPTY&sysparm_view=,18,Volume of Critical Priority Incidents Others,Get Volume of P1 Critical Incidents of managed assignment groups w.r.t to a timeperiod from servicenow stats api.,839684e2-c587-446f-9a1e-31e5c07af26a,,NULL,Delivery Health
+"{
+  ""apiUrl"": null,
+  ""apiUrl1"": null,
+  ""napiUrl"": ""/now/stats/incident?sysparm_count=true&sysparm_display_value=true&sysparm_query={filter}priority%3D1%5Esys_created_onONThis year@javascript:gs.beginningOfThisYear()@javascript:gs.endOfThisYear()&sysparm_group_by=sys_created_on"",
+  ""assignmentGroupsList"": []
+}",https://subsea7.service-now.com/incident_list.do?sysparm_query=sys_created_onONThis%20month%40javascript%3Ags.beginningOfThisMonth()%40javascript%3Ags.endOfThisMonth()%5Epriority%3D1%5Eassignment_group.nameINWKS-HEX-App-Support%2CWKS-HEX-App-Support&sysparm_view=,18,Volume of Critical Priority Incidents Selected Assignment Groups,Get Volume of P1 Critical Incidents with selected assignment groups w.r.t to a timeperiod from servicenow stats api.,24ee14d1-99e4-4961-bc7d-7df43946ff31,,NULL,Delivery Health
+"{
+  ""apiUrl"": null,
+  ""apiUrl1"": null,
+  ""napiUrl"": ""/now/stats/incident?sysparm_count=true&sysparm_display_value=true&sysparm_query={filter}priority%3D2%5Esys_created_onONThis year@javascript:gs.beginningOfThisYear()@javascript:gs.endOfThisYear()&sysparm_group_by=sys_created_on"",
+  ""assignmentGroupsList"": []
+}",https://subsea7.service-now.com/incident_list.do?sysparm_query=sys_created_onONThis%20month%40javascript%3Ags.beginningOfThisMonth()%40javascript%3Ags.endOfThisMonth()%5Epriority%3D2%5Eassignment_groupISNOTEMPTY&sysparm_view=,18,Volume of High Priority Incidents Others,Get Volume of P2 High Incidents of managed assignment groups w.r.t to a timeperiod from servicenow stats api.,da32b10b-3520-444b-a7ed-fb6a40fcb0f5,,NULL,Delivery Health
+"{""requestBody1"":{""size"":0,""query"":{""bool"":{""must"":[],""filter"":[{""range"":{""@timestamp"":{""gte"":"""",""lte"":""now"",""format"":""strict_date_optional_time""}}},{""bool"":{""should"":[{""bool"":{""should"":[{""match_phrase"":{""Hex_DeviceCategory"":""domain controller""}}],""minimum_should_match"":1}},{""bool"":{""should"":[{""match_phrase"":{""Hex_DeviceCategory"":""domain controller + dns + dhcp""}}],""minimum_should_match"":1}},{""bool"":{""should"":[{""match_phrase"":{""Hex_DeviceCategory"":""firewall""}}],""minimum_should_match"":1}},{""bool"":{""should"":[{""match_phrase"":{""Hex_DeviceCategory"":""hardware""}}],""minimum_should_match"":1}},{""bool"":{""should"":[{""match_phrase"":{""Hex_DeviceCategory"":""hci cluster ""}}],""minimum_should_match"":1}},{""bool"":{""should"":[{""match_phrase"":{""Hex_DeviceCategory"":""nas""}}],""minimum_should_match"":1}},{""bool"":{""should"":[{""match_phrase"":{""Hex_DeviceCategory"":""nas box""}}],""minimum_should_match"":1}},{""bool"":{""should"":[{""match_phrase"":{""Hex_DeviceCategory"":""nas storage""}}],""minimum_should_match"":1}},{""bool"":{""should"":[{""match_phrase"":{""Hex_DeviceCategory"":""nasuni""}}],""minimum_should_match"":1}},{""bool"":{""should"":[{""match_phrase"":{""Hex_DeviceCategory"":""network""}}],""minimum_should_match"":1}},{""bool"":{""should"":[{""match_phrase"":{""Hex_DeviceCategory"":""network switch""}}],""minimum_should_match"":1}},{""bool"":{""should"":[{""match_phrase"":{""Hex_DeviceCategory"":""network_firewall""}}],""minimum_should_match"":1}},{""bool"":{""should"":[{""match_phrase"":{""Hex_DeviceCategory"":""riverbed""}}],""minimum_should_match"":1}},{""bool"":{""should"":[{""match_phrase"":{""Hex_DeviceCategory"":""router""}}],""minimum_should_match"":1}},{""bool"":{""should"":[{""match_phrase"":{""Hex_DeviceCategory"":""Security""}}],""minimum_should_match"":1}},{""bool"":{""should"":[{""match_phrase"":{""Hex_DeviceCategory"":""switch""}}],""minimum_should_match"":1}},{""bool"":{""should"":[{""match_phrase"":{""Hex_DeviceCategory"":""VMWare Hypervisor""}}],""minimum_should_match"":1}},{""bool"":{""should"":[{""match_phrase"":{""Hex_DeviceCategory"":""wireless controller""}}],""minimum_should_match"":1}}],""minimum_should_match"":1}}]}},""aggs"":{""hourly_buckets"":{""date_range"":{""field"":""@timestamp"",""ranges"": []},""aggs"":{""status"":{""terms"":{""field"":""monitor.status""},""aggs"":{""count"":{""cardinality"":{""field"":""Hex_Hostname""}}}}}}}},""requestBody2"":null,""requestBody3"":null,""apiUrl"":""/heartbeat-*/_search"",""apiUrl1"":""/heartbeat-*/_search"",""apiUrl2"":null,""apiUrl3"":null}","https://subsea7-tensai.kb.eastus2.azure.elastic-cloud.com:9243/s/subsea7-dashboards/app/dashboards#/view/ee5da700-1887-11ed-9164-df73ef3be3ab?_g=(filters:!(),refreshInterval:(pause:!f,value:15000),time:(from:now-24h%2Fh,to:now))",18,Network Availability,Network Availability description,01664405-a318-4686-89ce-7de0be2adacc,NULL,NULL,Delivery Health
+"{
+  ""apiUrl"": null,
+  ""apiUrl1"": null,
+  ""napiUrl"": ""/now/stats/incident?sysparm_count=true&sysparm_display_value=true&sysparm_query={filter}priority%3D2%5Esys_created_onONThis year@javascript:gs.beginningOfThisYear()@javascript:gs.endOfThisYear()&sysparm_group_by=sys_created_on"",
+  ""assignmentGroupsList"": []
+}",https://subsea7.service-now.com/incident_list.do?sysparm_query=sys_created_onONThis%20month%40javascript%3Ags.beginningOfThisMonth()%40javascript%3Ags.endOfThisMonth()%5Epriority%3D2%5Eassignment_group.nameINWKS-HEX-App-Support%2CWKS-HEX-App-Support&sysparm_view=,18,Volume of High Priority Incidents Selected Assignment Groups,Get Volume of P2 High Incidents with selected assignment groups w.r.t to a timeperiod from servicenow stats api.,f7760a21-272b-45d6-9ed2-081bdf94eab6,,NULL,Delivery Health
+"{
+  ""requestBody"": {
+    ""query"": {
+      ""bool"": {
+        ""filter"": {
+          ""range"": {
+            ""time"": {
+              ""gte"": ""{startOfYear}""
+            }
+          }
+        }
+      }
+    }
+  },
+  ""requestBody1"": null,
+  ""requestBody2"": null,
+  ""requestBody3"": null,
+  ""apiUrl"": ""/{tenantName}_aged_ticket_backlog/_search"",
+  ""apiUrl1"": null,
+  ""apiUrl2"": null,
+  ""apiUrl3"": null
+}",https://subsea7.service-now.com/incident_list.do?sysparm_query=stateNOT%20IN6%2C8%2C7%5Esys_created_onRELATIVELT%40dayofweek%40ago%405&sysparm_view=,18,Aged Ticket Backlog From ELK,Get Aged Ticket Backlog From ELK w.r.t to a timeperiod from servicenow stats api.,5a0f7251-1eea-4b24-b44a-2c7bc2453fdf,,NULL,Delivery Health
+"{
+  ""requestBody"": {
+    ""query"": {
+      ""bool"": {
+        ""filter"": {
+          ""range"": {
+            ""time"": {
+              ""gte"": ""{startOfYear}""
+            }
+          }
+        }
+      }
+    }
+  },
+  ""requestBody1"": null,
+  ""requestBody2"": null,
+  ""requestBody3"": {
+    ""DataResponseVersion"": ""1.0""
+  },
+  ""apiUrl"": ""/{tenantName}_total_open_incident_8_am/_search"",
+  ""apiUrl1"": null,
+  ""apiUrl2"": null,
+  ""apiUrl3"": null
+}",https://subsea7.service-now.com/incident_list.do?sysparm_query=stateNOT%20IN6%2C8%2C7&sysparm_view=,18,Total Open Incident @ 9 AM From ELK,Get Total Open Incident @ 9 AM From ELK w.r.t to a timeperiod from servicenow stats api.,5ad3b795-b73f-4803-9722-7782d478ff48,,NULL,Delivery Health
+"{
+  ""requestBody"": {
+    ""query"": {
+      ""bool"": {
+        ""filter"": {
+          ""range"": {
+            ""time"": {
+              ""gte"": ""{startOfYear}""
+            }
+          }
+        }
+      }
+    }
+  },
+  ""requestBody1"": null,
+  ""requestBody2"": null,
+  ""requestBody3"": null,
+  ""apiUrl"": ""/{tenantName}_incident_open_more_than_30_days/_search"",
+  ""apiUrl1"": null,
+  ""apiUrl2"": null,
+  ""apiUrl3"": null
+}",https://subsea7.service-now.com/incident_list.do?sysparm_query=stateNOT%20IN6%2C8%2C7%5Esys_created_onRELATIVELT%40dayofweek%40ago%4030&sysparm_view=,18,Incident open more than 30 days From ELK,Get Incident open more than 30 days From ELK w.r.t to a timeperiod from servicenow stats api.,67d6eb50-37df-4959-8b39-c878900fffc8,,NULL,Delivery Health
+"{
+  ""requestBody"": {
+    ""query"": {
+      ""bool"": {
+        ""filter"": {
+          ""range"": {
+            ""time"": {
+              ""gte"": ""{startOfYear}""
+            }
+          }
+        }
+      }
+    }
+  },
+  ""requestBody1"": null,
+  ""requestBody2"": null,
+  ""requestBody3"": null,
+  ""apiUrl"": ""/{tenantName}_service_request_backlog/_search"",
+  ""apiUrl1"": null,
+  ""apiUrl2"": null,
+  ""apiUrl3"": null
+}",https://subsea7.service-now.com/sc_req_item_list.do?sysparm_query=active%3Dtrue%5EstateNOT%20IN3%2C4%2C27%2C29%5Estage!%3Dwaiting_for_approval%5Esys_created_onRELATIVELT%40dayofweek%40ago%405&sysparm_view=,18,Service Request Backlog From ELK,Get Service Request Backlog From ELK w.r.t to a timeperiod from servicenow stats api.,939d4158-31a9-4da7-988d-7b7660259961,,NULL,Delivery Health
+"{""requestBody1"":{""size"":0,""query"":{""bool"":{""filter"":[{""bool"":{""must"":{""terms"":{""Hex_DeviceCategory"":[""active directory"",""activedirectory"",""ad migration"",""application"",""application server"",""azure stack hci"",""Backup"",""Backup media agents"",""Backup server"",""commvaultmgtserver"",""comvault Backup and media server"",""critical infrastructure"",""data base server"",""database"",""database server"",""dhcp server"",""dns/dhcp"",""domino server"",""dss server"",""elk"",""engineering orcaflex simulation server"",""esxi host"",""exchange server"",""file server"",""file/print server"",""hyper v"",""hyper-v"",""hyper-v node"",""hypervisor"",""license server"",""linux server"",""lof server"",""management server"",""oracle"",""perle iolan"",""print server"",""sccm"",""sccm - dp"",""sccm server"",""server"",""sql server"",""steelfusion"",""web server"",""windows server"",""lync sba/sbc"",""zabbix-linux"",""storage"",""storage appliance"",""storage server""]}}}},{""range"":{""@timestamp"":{""format"":""strict_date_optional_time"",""gte"":"""",""lte"":""now""}}}]}},""aggs"":{""hourly_buckets"":{""date_range"":{""field"":""@timestamp"",""ranges"": []},""aggs"":{""status"":{""terms"":{""field"":""monitor.status""},""aggs"":{""count"":{""cardinality"":{""field"":""Hex_Hostname""}}}}}}}},""requestBody2"":null,""requestBody3"":null,""apiUrl"":""/heartbeat-*/_search"",""apiUrl1"":""/heartbeat-*/_search"",""apiUrl2"":null,""apiUrl3"":null}","https://subsea7-tensai.kb.eastus2.azure.elastic-cloud.com:9243/s/subsea7-dashboards/app/dashboards#/view/cbe3ab20-156c-11ed-9164-df73ef3be3ab?_g=(filters:!(),refreshInterval:(pause:!t,value:0),time:(from:now-24h%2Fh,to:now))",18,Servers Availability,Servers Availability Description,7fe5bb11-d6fa-4e63-a07c-f623b7246a4f,,NULL,Delivery Health

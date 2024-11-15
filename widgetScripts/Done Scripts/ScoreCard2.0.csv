@@ -1,0 +1,4 @@
+widgetConfigurationJSON,widgetProductLink,systemViewDashboardId,name,description,code,widgetConfigurationTemplate,subTitle,dashboardName
+"{""apiUrl"": null,""apiUrl1"": null,""assignmentGroupsList"": []}",NULL,20,Incident Bot Current Status,Incident Bot Current Status,8d38fce6-5f58-4232-ae0b-3d32679f0c1a,,NULL,Score Card 2.0
+"{""apiUrl"": null,""apiUrl1"": null,""assignmentGroupsList"": []}",NULL,20,SR Task Bot Current Status,SR Task Bot Current Status,ffb30bdb-a91d-42e7-9715-87b6bf1fba7a,,NULL,Score Card 2.0
+"{""apiUrl"": null,""apiUrl1"": null,""assignmentGroupsList"": []}",NULL,20,Request For Change Bot Current Status,Request For Change Bot Current Status,0bcb1ca8-85ce-43e4-a2d2-f2830f34985c,,NULL,Score Card 2.0

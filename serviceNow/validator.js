@@ -252,7 +252,7 @@ function createHtmlReport(data, tenantInfo) {
 
     const tenant = await getTenantByNameHelper(tenantName);
 
-    const product = await getProductByNameHelper({ tenantId: tenant?.id, productName: "servicenow" });
+    const product = await getProductByNameHelper({ tenantId: tenant?.id, productMasterId: 2 });
 
     const assignmentGroup = await getAssignmentGroupsByTenantId(tenant?.id);
 

@@ -1,12 +1,11 @@
 const pgClient = require("../utils/pgClient.js");
 const logger = require("../utils/logger.js");
 
-exports.getProductByNameHelper = async function getProductByNameHelper({ tenantId, productName }) {
-  logger.info(`getProductByNameHelper -> product name is ${productName}`);
-
+exports.getProductByNameHelper = async function getProductByNameHelper({ tenantId, productMasterId }) {
   const pool = pgClient.getPool("TENSAI_DB");
 
-  const { rows: products } = await pool.query(`
+  const { rows: products } = await pool.query(
+    `
     SELECT p.id,
       p.name,
       p."productConfigurationId",
@@ -14,8 +13,10 @@ exports.getProductByNameHelper = async function getProductByNameHelper({ tenantI
     FROM product p, productconfiguration pc
     WHERE p."productConfigurationId" = pc.id 
     AND p."tenantId" = $1
-    AND p."name" = $2
-  `, [tenantId, productName]);
+    AND p."productMasterId" = $2
+  `,
+    [tenantId, productMasterId]
+  );
 
   return products?.[0] ?? null;
-}
+};

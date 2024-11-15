@@ -1,0 +1,79 @@
+[
+    {
+        "widgetConfigurationJSON": "{\"requestBody\":null,\"requestBody1\":null,\"requestBody2\":null,\"requestBody3\":null,\"apiUrl\":\"/now/table/domain?sysparm_query=name={tenantName}&sysparm_display_value=true&sysparm_fields=name,sys_id\",\"apiUrl1\":\"/now/table/{tableName}?sysparm_query=sys_domain={sysIdFilter}^sys_created_onONThis year@javascript:gs.beginningOfThisYear()@javascript:gs.endOfThisYear()^u_automation_triggered_flag=true&sysparm_display_value=true&sysparm_fields=sys_created_on\",\"apiUrl2\":\"/now/table/{tableName}?sysparm_query=sys_domain={sysIdFilter}^sys_created_onONThis year@javascript:gs.beginningOfThisYear()@javascript:gs.endOfThisYear()^u_automation_triggered_flag=true^{assgrpFilter}&sysparm_display_value=true&sysparm_fields=sys_created_on\",\"apiUrl3\":\"/now/table/{tableName}?sysparm_query=sys_domain={sysIdFilter}^sys_created_onONThis year@javascript:gs.beginningOfThisYear()@javascript:gs.endOfThisYear()^u_automation_triggered_flag=true^u_automation_success_flag=true^{assgrpFilter}&sysparm_display_value=true&sysparm_fields=sys_created_on\",\"apiUrl4\":\"/now/table/{tableName}?sysparm_query=sys_domain={sysIdFilter}^sys_created_onONThis year@javascript:gs.beginningOfThisYear()@javascript:gs.endOfThisYear()^u_automation_triggered_flag=true^u_automation_success_flag=false^{assgrpFilter}&sysparm_display_value=true&sysparm_fields=sys_created_on\"}",
+        "widgetProductLink": "https://hexitsm.service-now.com/api/now/table/incident?sysparm_query=sys_domain%3D65727045db04e0106429644a4b96196a%5Eu_automation_triggered_flag%3Dtrue%5Eu_automation_success_flag%3Dtrue",
+        "systemViewDashboardId": "9",
+        "name": "Automation Performance - SC Task",
+        "description": "Automation Performance - SC Task",
+        "code": "5af9b706-7e5f-46b5-ae8b-56f3aad7ca54",
+        "widgetConfigurationTemplate": "",
+        "subTitle": "NULL",
+        "dashboardName": "Score Card"
+    },
+    {
+        "widgetConfigurationJSON": "{\"requestBody\":null,\"requestBody1\":null,\"requestBody2\":null,\"requestBody3\":null,\"apiUrl\":\"/now/table/domain?sysparm_query=name={tenantName}&sysparm_display_value=true&sysparm_fields=name,sys_id\",\"apiUrl1\":\"/now/stats/incident?sysparm_query=sys_domain={sysIdFilter}^u_automation_triggered_flag=true^u_automation_success_flag=true^sys_created_onONThis month@javascript:gs.beginningOfThisMonth()@javascript:gs.endOfThisMonth()&sysparm_count=true\",\"apiUrl2\":\"/now/stats/sc_task?sysparm_query=sys_domain={sysIdFilter}^u_automation_triggered_flag=true^u_automation_success_flag=true^sys_created_onONThis month@javascript:gs.beginningOfThisMonth()@javascript:gs.endOfThisMonth()&sysparm_count=true\",\"apiUrl3\":\"/now/stats/change_request?sysparm_query=sys_domain={sysIdFilter}^u_automation_triggered_flag=true^u_automation_success_flag=true^sys_created_onONThis month@javascript:gs.beginningOfThisMonth()@javascript:gs.endOfThisMonth()&sysparm_count=true\"}",
+        "widgetProductLink": "https://hexitsm.service-now.com/api/now/table/incident?sysparm_query=sys_domain%3D65727045db04e0106429644a4b96196a%5Eu_automation_triggered_flag%3Dtrue%5Eu_automation_success_flag%3Dtrue",
+        "systemViewDashboardId": "9",
+        "name": "Automated Tickets",
+        "description": "Automated Tickets",
+        "code": "b76d7e82-3b50-48ef-b190-1160eac7a893",
+        "widgetConfigurationTemplate": "",
+        "subTitle": "NULL",
+        "dashboardName": "Score Card"
+    },
+    {
+        "widgetConfigurationJSON": "{\"requestBody\":null,\"requestBody1\":null,\"requestBody2\":null,\"requestBody3\":null,\"apiUrl\":\"/now/table/domain?sysparm_query=name={tenantName}&sysparm_display_value=true&sysparm_fields=name,sys_id\",\"apiUrl1\":\"/now/stats/{tableName}?sysparm_query=sys_domain={sysIdFilter}^sys_created_onONThis month@javascript:gs.beginningOfThisMonth()@javascript:gs.endOfThisMonth()^u_automation_triggered_flag=true^u_automation_success_flag=true^{assgrpFilter}&sysparm_count=true&sysparm_display_value=true\",\"apiUrl2\":\"/now/stats/{tableName}?sysparm_query=sys_domain={sysIdFilter}^sys_created_onONThis month@javascript:gs.beginningOfThisMonth()@javascript:gs.endOfThisMonth()^u_automation_triggered_flag=true&sysparm_count=true&sysparm_display_value=true\",\"apiUrl3\":null}",
+        "widgetProductLink": "https://hexitsm.service-now.com/api/now/table/incident?sysparm_query=sys_domain%3D65727045db04e0106429644a4b96196a%5Eu_automation_triggered_flag%3Dtrue%5Eu_automation_success_flag%3Dtrue",
+        "systemViewDashboardId": "9",
+        "name": "Automation For IT",
+        "description": "Automation For IT",
+        "code": "2c213241-939c-4ff8-98ed-521c75d98e39",
+        "widgetConfigurationTemplate": "",
+        "subTitle": "NULL",
+        "dashboardName": "Score Card"
+    },
+    {
+        "widgetConfigurationJSON": "{\"requestBody\":null,\"requestBody1\":null,\"requestBody2\":null,\"requestBody3\":null,\"apiUrl\":\"/now/table/domain?sysparm_query=name={tenantName}&sysparm_display_value=true&sysparm_fields=name,sys_id\",\"apiUrl1\":\"/now/stats/{tableName}?sysparm_query=sys_domain={sysIdFilter}^sys_created_onONThis month@javascript:gs.beginningOfThisMonth()@javascript:gs.endOfThisMonth()^u_automation_triggered_flag=true^u_automation_success_flag=true^{assgrpFilter}&sysparm_count=true&sysparm_display_value=true\",\"apiUrl2\":\"/now/stats/{tableName}?sysparm_query=sys_domain={sysIdFilter}^sys_created_onONThis month@javascript:gs.beginningOfThisMonth()@javascript:gs.endOfThisMonth()^u_automation_triggered_flag=true^{assgrpFilter}&sysparm_count=true&sysparm_display_value=true\",\"apiUrl3\":null}",
+        "widgetProductLink": "https://hexitsm.service-now.com/api/now/table/incident?sysparm_query=sys_domain%3D65727045db04e0106429644a4b96196a%5Eu_automation_triggered_flag%3Dtrue%5Eu_automation_success_flag%3Dtrue",
+        "systemViewDashboardId": "9",
+        "name": "Automation Success Rate",
+        "description": "Automation Success Rate",
+        "code": "98773e88-6ccc-4a65-b87e-3d2a8cd2c948",
+        "widgetConfigurationTemplate": "",
+        "subTitle": "NULL",
+        "dashboardName": "Score Card"
+    },
+    {
+        "widgetConfigurationJSON": "{\"requestBody\":null,\"requestBody1\":null,\"requestBody2\":null,\"requestBody3\":null,\"apiUrl\":\"/now/table/domain?sysparm_query=name={tenantName}&sysparm_display_value=true&sysparm_fields=name,sys_id\",\"apiUrl1\":\"/now/table/{tableName}?sysparm_query=sys_domain={sysIdFilter}^sys_created_onONThis year@javascript:gs.beginningOfThisYear()@javascript:gs.endOfThisYear()^u_automation_triggered_flag=true&sysparm_display_value=true&sysparm_fields=sys_created_on\",\"apiUrl2\":\"/now/table/{tableName}?sysparm_query=sys_domain={sysIdFilter}^sys_created_onONThis year@javascript:gs.beginningOfThisYear()@javascript:gs.endOfThisYear()^u_automation_triggered_flag=true^{assgrpFilter}&sysparm_display_value=true&sysparm_fields=sys_created_on\",\"apiUrl3\":\"/now/table/{tableName}?sysparm_query=sys_domain={sysIdFilter}^sys_created_onONThis year@javascript:gs.beginningOfThisYear()@javascript:gs.endOfThisYear()^u_automation_triggered_flag=true^u_automation_success_flag=true^{assgrpFilter}&sysparm_display_value=true&sysparm_fields=sys_created_on\",\"apiUrl4\":\"/now/table/{tableName}?sysparm_query=sys_domain={sysIdFilter}^sys_created_onONThis year@javascript:gs.beginningOfThisYear()@javascript:gs.endOfThisYear()^u_automation_triggered_flag=true^u_automation_success_flag=false^{assgrpFilter}&sysparm_display_value=true&sysparm_fields=sys_created_on\"}",
+        "widgetProductLink": "https://hexitsm.service-now.com/api/now/table/incident?sysparm_query=sys_domain%3D65727045db04e0106429644a4b96196a%5Eu_automation_triggered_flag%3Dtrue%5Eu_automation_success_flag%3Dtrue",
+        "systemViewDashboardId": "9",
+        "name": "Automation Performance - INC",
+        "description": "Automation Performance - INC",
+        "code": "3ea0fd38-db65-4628-9241-2caecea0d656",
+        "widgetConfigurationTemplate": "",
+        "subTitle": "NULL",
+        "dashboardName": "Score Card"
+    },
+    {
+        "widgetConfigurationJSON": "{\"requestBody\":null,\"requestBody1\":null,\"requestBody2\":null,\"requestBody3\":null,\"apiUrl\":\"/now/table/domain?sysparm_query=name={tenantName}&sysparm_display_value=true&sysparm_fields=name,sys_id\",\"apiUrl1\":\"/now/stats/{tableName}?sysparm_query=sys_domain={sysIdFilter}^sys_created_onONThis month@javascript:gs.beginningOfThisMonth()@javascript:gs.endOfThisMonth()^u_automation_triggered_flag=true^{assgrpFilter}^{shortDescriptionFilter}&sysparm_avg_fields=calendar_duration&sysparm_count=true&sysparm_display_value=true\",\"apiUrl2\":\"/now/stats/{tableName}?sysparm_query=sys_domain={sysIdFilter}^sys_created_onONThis month@javascript:gs.beginningOfThisMonth()@javascript:gs.endOfThisMonth()^u_automation_triggered_flag=true^u_automation_success_flag=true^{assgrpFilter}^{shortDescriptionFilter}&sysparm_count=true&sysparm_display_value=true\",\"apiUrl3\":\"/now/table/{tableName}?sysparm_query={assgrpFilter}^{shortDescriptionFilter}^u_created_dateISNOTEMPTY^ORDERBYu_created_date&sysparm_display_value=true&sysparm_fields=u_created_date&sysparm_limit=1\"}",
+        "widgetProductLink": "https://google.com",
+        "systemViewDashboardId": "9",
+        "name": "Bot Drilldown",
+        "description": "Bot Drilldown",
+        "code": "a1937d17-c125-487d-a9e5-4c29362aeff5",
+        "widgetConfigurationTemplate": "",
+        "subTitle": "NULL",
+        "dashboardName": "Score Card"
+    },
+    {
+        "widgetConfigurationJSON": "{\"requestBody\":null,\"requestBody1\":null,\"requestBody2\":null,\"requestBody3\":null,\"apiUrl\":\"/now/table/domain?sysparm_query=name={tenantName}&sysparm_display_value=true&sysparm_fields=name,sys_id\",\"apiUrl1\":\"/now/table/{tableName}?sysparm_query=sys_domain={sysIdFilter}^sys_created_onONThis year@javascript:gs.beginningOfThisYear()@javascript:gs.endOfThisYear()^u_automation_triggered_flag=true&sysparm_display_value=true&sysparm_fields=sys_created_on\",\"apiUrl2\":\"/now/table/{tableName}?sysparm_query=sys_domain={sysIdFilter}^sys_created_onONThis year@javascript:gs.beginningOfThisYear()@javascript:gs.endOfThisYear()^u_automation_triggered_flag=true^{assgrpFilter}&sysparm_display_value=true&sysparm_fields=sys_created_on\",\"apiUrl3\":\"/now/table/{tableName}?sysparm_query=sys_domain={sysIdFilter}^sys_created_onONThis year@javascript:gs.beginningOfThisYear()@javascript:gs.endOfThisYear()^u_automation_triggered_flag=true^u_automation_success_flag=true^{assgrpFilter}&sysparm_display_value=true&sysparm_fields=sys_created_on\",\"apiUrl4\":\"/now/table/{tableName}?sysparm_query=sys_domain={sysIdFilter}^sys_created_onONThis year@javascript:gs.beginningOfThisYear()@javascript:gs.endOfThisYear()^u_automation_triggered_flag=true^u_automation_success_flag=false^{assgrpFilter}&sysparm_display_value=true&sysparm_fields=sys_created_on\"}",
+        "widgetProductLink": "https://hexitsm.service-now.com/api/now/table/incident?sysparm_query=sys_domain%3D65727045db04e0106429644a4b96196a%5Eu_automation_triggered_flag%3Dtrue%5Eu_automation_success_flag%3Dtrue",
+        "systemViewDashboardId": "9",
+        "name": "Automation Performance - RFC",
+        "description": "Automation Performance - RFC",
+        "code": "fd205dd3-00af-4819-bcf2-cf3da19fd38a",
+        "widgetConfigurationTemplate": "",
+        "subTitle": "NULL",
+        "dashboardName": "Score Card"
+    }
+]
